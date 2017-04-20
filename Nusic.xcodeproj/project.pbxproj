@@ -15,6 +15,7 @@
 		695C48431EA918AA003514EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695C48411EA918AA003514EB /* LaunchScreen.storyboard */; };
 		695C484B1EA918BE003514EB /* ArtistRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695C484A1EA918BE003514EB /* ArtistRequest.swift */; };
 		695C484D1EA93AF8003514EB /* NewsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695C484C1EA93AF8003514EB /* NewsRequest.swift */; };
+		695C484F1EA943FF003514EB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695C484E1EA943FF003514EB /* Utilities.swift */; };
 		E0BC8364388A8C6E7DFCCAB2 /* Pods_Nusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330EB91E5B2334D7428F47E7 /* Pods_Nusic.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		695C48441EA918AA003514EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		695C484A1EA918BE003514EB /* ArtistRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistRequest.swift; sourceTree = "<group>"; };
 		695C484C1EA93AF8003514EB /* NewsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsRequest.swift; sourceTree = "<group>"; };
+		695C484E1EA943FF003514EB /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F9D7589793917F61289D3D78 /* Pods-Nusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nusic/Pods-Nusic.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +82,7 @@
 				695C48371EA918AA003514EB /* ViewController.swift */,
 				695C484A1EA918BE003514EB /* ArtistRequest.swift */,
 				695C484C1EA93AF8003514EB /* NewsRequest.swift */,
+				695C484E1EA943FF003514EB /* Utilities.swift */,
 				695C48391EA918AA003514EB /* Main.storyboard */,
 				695C483F1EA918AA003514EB /* Assets.xcassets */,
 				695C48411EA918AA003514EB /* LaunchScreen.storyboard */,
@@ -220,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				695C484F1EA943FF003514EB /* Utilities.swift in Sources */,
 				695C484D1EA93AF8003514EB /* NewsRequest.swift in Sources */,
 				695C48381EA918AA003514EB /* ViewController.swift in Sources */,
 				695C483E1EA918AA003514EB /* Nusic.xcdatamodeld in Sources */,
