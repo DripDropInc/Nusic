@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E4250CA1EA936A600AE46AC /* ArticleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4250C91EA936A600AE46AC /* ArticleRequest.swift */; };
 		695C48361EA918AA003514EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695C48351EA918AA003514EB /* AppDelegate.swift */; };
 		695C48381EA918AA003514EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695C48371EA918AA003514EB /* ViewController.swift */; };
 		695C483B1EA918AA003514EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695C48391EA918AA003514EB /* Main.storyboard */; };
@@ -15,12 +14,12 @@
 		695C48401EA918AA003514EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 695C483F1EA918AA003514EB /* Assets.xcassets */; };
 		695C48431EA918AA003514EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695C48411EA918AA003514EB /* LaunchScreen.storyboard */; };
 		695C484B1EA918BE003514EB /* ArtistRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695C484A1EA918BE003514EB /* ArtistRequest.swift */; };
+		695C484D1EA93AF8003514EB /* NewsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695C484C1EA93AF8003514EB /* NewsRequest.swift */; };
 		E0BC8364388A8C6E7DFCCAB2 /* Pods_Nusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330EB91E5B2334D7428F47E7 /* Pods_Nusic.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		330EB91E5B2334D7428F47E7 /* Pods_Nusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E4250C91EA936A600AE46AC /* ArticleRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleRequest.swift; sourceTree = "<group>"; };
 		54C8E3978A21D2AB178CFD00 /* Pods-Nusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nusic/Pods-Nusic.release.xcconfig"; sourceTree = "<group>"; };
 		695C48321EA918AA003514EB /* Nusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		695C48351EA918AA003514EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +30,7 @@
 		695C48421EA918AA003514EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		695C48441EA918AA003514EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		695C484A1EA918BE003514EB /* ArtistRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistRequest.swift; sourceTree = "<group>"; };
+		695C484C1EA93AF8003514EB /* NewsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsRequest.swift; sourceTree = "<group>"; };
 		F9D7589793917F61289D3D78 /* Pods-Nusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nusic/Pods-Nusic.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,7 +79,7 @@
 				695C48351EA918AA003514EB /* AppDelegate.swift */,
 				695C48371EA918AA003514EB /* ViewController.swift */,
 				695C484A1EA918BE003514EB /* ArtistRequest.swift */,
-				4E4250C91EA936A600AE46AC /* ArticleRequest.swift */,
+				695C484C1EA93AF8003514EB /* NewsRequest.swift */,
 				695C48391EA918AA003514EB /* Main.storyboard */,
 				695C483F1EA918AA003514EB /* Assets.xcassets */,
 				695C48411EA918AA003514EB /* LaunchScreen.storyboard */,
@@ -220,11 +220,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				695C484D1EA93AF8003514EB /* NewsRequest.swift in Sources */,
 				695C48381EA918AA003514EB /* ViewController.swift in Sources */,
 				695C483E1EA918AA003514EB /* Nusic.xcdatamodeld in Sources */,
 				695C48361EA918AA003514EB /* AppDelegate.swift in Sources */,
 				695C484B1EA918BE003514EB /* ArtistRequest.swift in Sources */,
-				4E4250CA1EA936A600AE46AC /* ArticleRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
