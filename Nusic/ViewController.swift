@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         
         requestArtistID(input: textField.text!) { (artistName, artistId, artistPhoto) in
             print("name \(artistName), id \(artistId), photo \(artistPhoto)")
+            requestArtistNews(input: artistId)
         }
     }
 }

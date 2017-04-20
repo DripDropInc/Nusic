@@ -80,7 +80,7 @@ func requestArtistNews(input Input : Int) {
      Request (GET https://music-api.musikki.com/v1/artists/100052041/news)
      */
     
-    guard var URL = URL(string: "https://music-api.musikki.com/v1/artists/ \(Input)/news") else {return}
+    guard let URL = URL(string: "https://music-api.musikki.com/v1/artists/\(Input)/news") else {return}
     var request = URLRequest(url: URL)
     request.httpMethod = "GET"
     
@@ -99,15 +99,24 @@ func requestArtistNews(input Input : Int) {
             // Check if data is returned
             if let data = data {
                 let json = JSON(data: data)
-                let result = json["results"]
-                let artist = result[0]
-                let artistName = artist["name"].stringValue
-                let artistId = artist["mkid"].intValue
-                let artistImage = artist["image"].stringValue
-                //
-                print("Artist Name: \(artistName)")
-                print("Artist ID: \(artistId)")
+                let result = json["results"].arrayValue
+                for currentIndex in result {
+                    let title = currentIndex["title"]
+                    let summary = currentIndex["summary"]
+                    let url = currentIndex["url"]
+                    let image = currentIndex["image"]
+                    let source = currentIndex["source"]
+                    let sourceTitle = source["title"]
+                    
+                    print(title)
+                    print(summary)
+                    print(url)
+                    print(image)
+                    print(sourceTitle)
+                    print("---------------------------------------------------------------------------------------------")
                 
+                }
+
                 
             }
         }
