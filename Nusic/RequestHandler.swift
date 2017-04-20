@@ -115,6 +115,14 @@ func requestArtistNews(input Input : Int) {
                     print(sourceTitle)
                     print("---------------------------------------------------------------------------------------------")
                 
+                let newArticle = Article()
+                    newArticle.articleTitle = title.string
+                    newArticle.articleSummary = summary.string
+                    newArticle.articleURL = url.string
+                    newArticle.articleImage = image.string
+                    newArticle.articleSourceTitle = source.string
+                    
+                    
                 }
 
                 

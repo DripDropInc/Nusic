@@ -7,4 +7,5 @@ target 'Nusic' do
 
   # Pods for Nusic
 pod 'SwiftyJSON', '~> 3.1'
+pod 'SDWebImage', '~> 4.0'
 end
