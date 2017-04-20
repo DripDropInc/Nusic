@@ -83,11 +83,8 @@
 				695C48351EA918AA003514EB /* AppDelegate.swift */,
 				695C48371EA918AA003514EB /* ViewController.swift */,
 				695C484A1EA918BE003514EB /* RequestHandler.swift */,
-<<<<<<< HEAD
 				4E20F7201EA969FC003E9D45 /* FeedTableViewController.swift */,
-=======
 				695C48501EA96751003514EB /* Article.swift */,
->>>>>>> 65e1d56778069bed9ff987235f30ca283ec283ed
 				695C484E1EA943FF003514EB /* Utilities.swift */,
 				695C48391EA918AA003514EB /* Main.storyboard */,
 				695C483F1EA918AA003514EB /* Assets.xcassets */,
