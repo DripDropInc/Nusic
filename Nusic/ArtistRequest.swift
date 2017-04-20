@@ -44,14 +44,15 @@ class RequestController {
                 // Check if data is returned
                 if let data = data {
                     let json = JSON(data: data)
-                    for result in json["results"].arrayValue {
-                        let artistName = result["name"].stringValue
-                        let artistId = result["mkid"].intValue
-                        let artistImage = result["image"].stringValue
+                    let result = json["results"]
+                    let artist = result[0]
+                        let artistName = artist["name"].stringValue
+                        let artistId = artist["mkid"].intValue
+                        let artistImage = artist["image"].stringValue
                         //                                let artistObj = ["name": artistName, "mkid": artistId, "default_image": default_image]
-                        print(artistName)
-                        print(artistId)
-                    }
+                        print("Artist Name: \(artistName)")
+                        print("Artist ID: \(artistId)")
+        
                 
                 }
             }

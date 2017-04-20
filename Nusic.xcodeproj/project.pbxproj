@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E4250CA1EA936A600AE46AC /* ArticleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4250C91EA936A600AE46AC /* ArticleRequest.swift */; };
 		695C48361EA918AA003514EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695C48351EA918AA003514EB /* AppDelegate.swift */; };
 		695C48381EA918AA003514EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695C48371EA918AA003514EB /* ViewController.swift */; };
 		695C483B1EA918AA003514EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695C48391EA918AA003514EB /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		330EB91E5B2334D7428F47E7 /* Pods_Nusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E4250C91EA936A600AE46AC /* ArticleRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleRequest.swift; sourceTree = "<group>"; };
 		54C8E3978A21D2AB178CFD00 /* Pods-Nusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nusic/Pods-Nusic.release.xcconfig"; sourceTree = "<group>"; };
 		695C48321EA918AA003514EB /* Nusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		695C48351EA918AA003514EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				695C48351EA918AA003514EB /* AppDelegate.swift */,
 				695C48371EA918AA003514EB /* ViewController.swift */,
 				695C484A1EA918BE003514EB /* ArtistRequest.swift */,
+				4E4250C91EA936A600AE46AC /* ArticleRequest.swift */,
 				695C48391EA918AA003514EB /* Main.storyboard */,
 				695C483F1EA918AA003514EB /* Assets.xcassets */,
 				695C48411EA918AA003514EB /* LaunchScreen.storyboard */,
@@ -221,6 +224,7 @@
 				695C483E1EA918AA003514EB /* Nusic.xcdatamodeld in Sources */,
 				695C48361EA918AA003514EB /* AppDelegate.swift in Sources */,
 				695C484B1EA918BE003514EB /* ArtistRequest.swift in Sources */,
+				4E4250CA1EA936A600AE46AC /* ArticleRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +390,7 @@
 				695C48491EA918AA003514EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
