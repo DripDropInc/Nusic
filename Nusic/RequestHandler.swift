@@ -68,7 +68,7 @@ import SwiftyJSON
     }
 
 // MARK: News Request
-func requestArtistNews(input Input : String) {
+func requestArtistNews(input Input : Int) {
     
     
     let sessionConfig = URLSessionConfiguration.default
@@ -80,9 +80,7 @@ func requestArtistNews(input Input : String) {
      Request (GET https://music-api.musikki.com/v1/artists/100052041/news)
      */
     
-    guard var URL = URL(string: "https://music-api.musikki.com/v1/artists/ \(artistId?)/news") else {return}
-    let URLParams = ["q": (Input),]
-    URL = URL.appendingQueryParameters(URLParams)
+    guard var URL = URL(string: "https://music-api.musikki.com/v1/artists/ \(Input)/news") else {return}
     var request = URLRequest(url: URL)
     request.httpMethod = "GET"
     
