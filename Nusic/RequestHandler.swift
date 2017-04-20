@@ -9,6 +9,7 @@
 import Foundation
 import SwiftyJSON
 
+var articlesArray : NSMutableArray = []
 
 //MARK: Artist Request
 
@@ -122,6 +123,7 @@ func requestArtistNews(input Input : Int) {
                     newArticle.articleImage = image.string
                     newArticle.articleSourceTitle = source.string
                     
+                 articlesArray.add(newArticle)
                     
                 }
 

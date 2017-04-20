@@ -64,7 +64,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="117" id="UvQ-mD-ePs">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="117" id="UvQ-mD-ePs" customClass="FeedTableViewCell" customModule="Nusic" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="117"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UvQ-mD-ePs" id="9YT-kG-PGC">
@@ -98,6 +98,12 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cellBody" destination="YMG-PI-FGQ" id="PRf-un-c7j"/>
+                                    <outlet property="cellHeadline" destination="PNc-PO-0dO" id="GEN-ph-lUi"/>
+                                    <outlet property="cellImage" destination="yBa-ym-Qtp" id="Ekv-EE-RyN"/>
+                                    <outlet property="cellSource" destination="wCO-OT-4Mp" id="foD-nI-y3M"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
