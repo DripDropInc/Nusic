@@ -26,9 +26,9 @@ class ViewController: UIViewController {
     
     @IBAction func button(_ sender: Any) {
         
-        let hello = RequestController()
+        let artistRequest = ArtistRequest()
         
-        hello.requestArtistID(input: textField.text!)
+        artistRequest.requestArtistID(input: textField.text!)
     }
 }
 

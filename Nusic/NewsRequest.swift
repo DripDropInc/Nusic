@@ -10,6 +10,9 @@ import SwiftyJSON
 
 
 class NewsRequestController {
+    
+    let artistReq = ArtistRequest()
+    
     func requestArtistID(input Input : String) {
         
         let sessionConfig = URLSessionConfiguration.default
@@ -21,7 +24,7 @@ class NewsRequestController {
          Request (GET https://music-api.musikki.com/v1/artists/100052041/news)
          */
         
-        guard var URL = URL(string: "https://music-api.musikki.com/v1/artists/") else {return}
+        guard var URL = URL(string: "https://music-api.musikki.com/v1/artists/ \(artistReq.artistId)") else {return}
         let URLParams = ["q": (Input),]
         URL = URL.appendingQueryParameters(URLParams)
         var request = URLRequest(url: URL)

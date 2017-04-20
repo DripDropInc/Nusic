@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 
 
-class RequestController {
+class ArtistRequest {
     
     var artistName: String?
     var artistId: Int?
