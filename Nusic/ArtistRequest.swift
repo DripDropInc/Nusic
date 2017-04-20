@@ -2,15 +2,21 @@
 //  RequestController.swift
 //  Nusic
 //
-//  Created by Trevor MacGregor on 2017-04-19.
+//  Created by AlexRapier on 2017-04-19.
 //  Copyright © 2017 none. All rights reserved.
 //
 
 import Foundation
 
-
 class RequestController {
-    func sendRequest() {
+    func requestArtistID(input Input : String) {
+        /* Configure session, choose between:
+         * defaultSessionConfiguration
+         * ephemeralSessionConfiguration
+         * backgroundSessionConfigurationWithIdentifier:
+         And set session-wide properties, such as: HTTPAdditionalHeaders,
+         HTTPCookieAcceptPolicy, requestCachePolicy or timeoutIntervalForRequest.
+         */
         let sessionConfig = URLSessionConfiguration.default
         
         /* Create session, and optionally set a URLSessionDelegate. */
@@ -21,7 +27,7 @@ class RequestController {
          */
         
         guard var URL = URL(string: "https://music-api.musikki.com/v1/artists/") else {return}
-        let URLParams = ["q": "mastadon",]
+        let URLParams = ["q": (Input),]
         URL = URL.appendingQueryParameters(URLParams)
         var request = URLRequest(url: URL)
         request.httpMethod = "GET"
@@ -46,10 +52,31 @@ class RequestController {
                     }
                     //                    print(json!)
                     
-                           if let results = json!["results"] as? [[String: AnyObject]] {
+                    
+                    if let results = json!["results"] as? [[String: AnyObject]] {
                         print("_________________________")
-                            print(results)
+                        print(results)
                     }
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    //                    array?.addObjects(from: json!["results"] as! [Any])
+                    
+                    //                    newArticle.headline = results!["title"] as? String
+                    //                    newArticle.body = results!["summary"] as? String
+                    //                    newArticle.url = results!["url"] as? URL
+                    //
+                    //                    print(newArticle.headline!)
+                    //                    print(newArticle.body!)
+                    //                    print(newArticle.url!)
                 }
             }
             else {
@@ -99,8 +126,6 @@ extension URL {
         return URL(string: URLString)!
     }
     
-    
-
 }
 
 
