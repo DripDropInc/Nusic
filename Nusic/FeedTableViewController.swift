@@ -9,10 +9,18 @@
 import UIKit
 
 class FeedTableViewController: UITableViewController {
-
+    
+    var request: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let request = self.request {
+            requestArtistID(input: request) { (artistName, artistId, artistPhoto) in
+                print("name \(artistName), id \(artistId), photo \(artistPhoto)")
+                requestArtistNews(input: artistId)
+            }
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

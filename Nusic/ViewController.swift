@@ -24,12 +24,18 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //pass textfield string to destination view controller (FeedTableViewController) request property
+    }
+    
     @IBAction func button(_ sender: Any) {
+        // trigger segue to FeedTableViewController
         
-        requestArtistID(input: textField.text!) { (artistName, artistId, artistPhoto) in
-            print("name \(artistName), id \(artistId), photo \(artistPhoto)")
-            requestArtistNews(input: artistId)
-        }
+//        
+//        requestArtistID(input: textField.text!) { (artistName, artistId, artistPhoto) in
+//            print("name \(artistName), id \(artistId), photo \(artistPhoto)")
+//            requestArtistNews(input: artistId)
+//        }
     }
 }
 
