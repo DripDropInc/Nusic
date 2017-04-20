@@ -7,16 +7,13 @@
 //
 
 import Foundation
+import SwiftyJSON
+
+
 
 class RequestController {
     func requestArtistID(input Input : String) {
-        /* Configure session, choose between:
-         * defaultSessionConfiguration
-         * ephemeralSessionConfiguration
-         * backgroundSessionConfigurationWithIdentifier:
-         And set session-wide properties, such as: HTTPAdditionalHeaders,
-         HTTPCookieAcceptPolicy, requestCachePolicy or timeoutIntervalForRequest.
-         */
+        
         let sessionConfig = URLSessionConfiguration.default
         
         /* Create session, and optionally set a URLSessionDelegate. */
@@ -46,26 +43,15 @@ class RequestController {
                 
                 // Check if data is returned
                 if let data = data {
-                    guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject] else {
-                        print("data returned is not json, or not valid")
-                        return
+                    let json = JSON(data: data)
+                    for result in json["results"].arrayValue {
+                        let artistName = result["name"].stringValue
+                        let artistId = result["mkid"].intValue
+                        let artistImage = result["image"].stringValue
+                        //                                let artistObj = ["name": artistName, "mkid": artistId, "default_image": default_image]
+                        print(artistName)
+                        print(artistId)
                     }
-                    //                    print(json!)
-                    
-                    
-                    if let results = json!["results"] as? [[String: AnyObject]] {
-                        print("_________________________")
-                        print(results)
-                    }
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     
                     
                     //                    array?.addObjects(from: json!["results"] as! [Any])
