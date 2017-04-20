@@ -52,17 +52,7 @@ class RequestController {
                         print(artistName)
                         print(artistId)
                     }
-                    
-                    
-                    //                    array?.addObjects(from: json!["results"] as! [Any])
-                    
-                    //                    newArticle.headline = results!["title"] as? String
-                    //                    newArticle.body = results!["summary"] as? String
-                    //                    newArticle.url = results!["url"] as? URL
-                    //
-                    //                    print(newArticle.headline!)
-                    //                    print(newArticle.body!)
-                    //                    print(newArticle.url!)
+                
                 }
             }
             else {
