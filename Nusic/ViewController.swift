@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
@@ -38,11 +40,7 @@ class ViewController: UIViewController {
         
         // trigger segue to FeedTableViewController
         self.performSegue(withIdentifier: "cell", sender: self)
-//        
-//        requestArtistID(input: textField.text!) { (artistName, artistId, artistPhoto) in
-//            print("name \(artistName), id \(artistId), photo \(artistPhoto)")
-//            requestArtistNews(input: artistId)
-//        }
+        
     }
 }
 

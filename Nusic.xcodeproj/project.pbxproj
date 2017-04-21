@@ -86,6 +86,7 @@
 		695C48341EA918AA003514EB /* Nusic */ = {
 			isa = PBXGroup;
 			children = (
+				695C48391EA918AA003514EB /* Main.storyboard */,
 				695C48351EA918AA003514EB /* AppDelegate.swift */,
 				695C48371EA918AA003514EB /* ViewController.swift */,
 				695C484A1EA918BE003514EB /* RequestHandler.swift */,
@@ -93,7 +94,6 @@
 				4E20F7201EA969FC003E9D45 /* FeedTableViewController.swift */,
 				695C48521EA97642003514EB /* FeedTableViewCell.swift */,
 				695C484E1EA943FF003514EB /* Utilities.swift */,
-				695C48391EA918AA003514EB /* Main.storyboard */,
 				4ECEDC751EA9ABE000FD5275 /* FeedCollectionViewController.swift */,
 				4ECEDC771EA9ABF200FD5275 /* FeedCollectionViewCell.swift */,
 				695C483F1EA918AA003514EB /* Assets.xcassets */,

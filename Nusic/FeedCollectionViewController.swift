@@ -7,18 +7,27 @@
 //
 
 import UIKit
-
+import MBProgressHUD
 
 class FeedCollectionViewController: UICollectionViewController {
     
     var request: String! {
         didSet {
+            
+            //progress HUD
+            let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+            loadingNotification.label.text = "Loading"
+
             requestArtistID(input: request) { (artistName, artistId, artistPhoto) in
                 
                 print("name \(artistName), id \(artistId), photo \(artistPhoto)")
                 
                 requestArtistNews(input: artistId) {
                     DispatchQueue.main.async {
+                        
+                        //dismiss HUD and reload
+                        MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
                         self.collectionView?.reloadData()
                     }
                 }

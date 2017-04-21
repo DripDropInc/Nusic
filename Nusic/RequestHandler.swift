@@ -8,12 +8,15 @@
 
 import Foundation
 import SwiftyJSON
+import MBProgressHUD
 
 var articlesArray : NSMutableArray = []
 
 //MARK: Artist Request
 
     func requestArtistID(input Input : String, complete: @escaping ((String,Int,String) -> Void) ) {
+        
+        
         
         let sessionConfig = URLSessionConfiguration.default
         
