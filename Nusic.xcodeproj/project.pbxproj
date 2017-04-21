@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4E20F7211EA969FC003E9D45 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E20F7201EA969FC003E9D45 /* FeedTableViewController.swift */; };
+		4ECEDC761EA9ABE000FD5275 /* FeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECEDC751EA9ABE000FD5275 /* FeedCollectionViewController.swift */; };
+		4ECEDC781EA9ABF200FD5275 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECEDC771EA9ABF200FD5275 /* FeedCollectionViewCell.swift */; };
 		695C48361EA918AA003514EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695C48351EA918AA003514EB /* AppDelegate.swift */; };
 		695C48381EA918AA003514EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695C48371EA918AA003514EB /* ViewController.swift */; };
 		695C483B1EA918AA003514EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695C48391EA918AA003514EB /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 /* Begin PBXFileReference section */
 		330EB91E5B2334D7428F47E7 /* Pods_Nusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E20F7201EA969FC003E9D45 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		4ECEDC751EA9ABE000FD5275 /* FeedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewController.swift; sourceTree = "<group>"; };
+		4ECEDC771EA9ABF200FD5275 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		54C8E3978A21D2AB178CFD00 /* Pods-Nusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nusic/Pods-Nusic.release.xcconfig"; sourceTree = "<group>"; };
 		695C48321EA918AA003514EB /* Nusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		695C48351EA918AA003514EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				695C48521EA97642003514EB /* FeedTableViewCell.swift */,
 				695C484E1EA943FF003514EB /* Utilities.swift */,
 				695C48391EA918AA003514EB /* Main.storyboard */,
+				4ECEDC751EA9ABE000FD5275 /* FeedCollectionViewController.swift */,
+				4ECEDC771EA9ABF200FD5275 /* FeedCollectionViewCell.swift */,
 				695C483F1EA918AA003514EB /* Assets.xcassets */,
 				695C48411EA918AA003514EB /* LaunchScreen.storyboard */,
 				695C48441EA918AA003514EB /* Info.plist */,
@@ -230,6 +236,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				695C484F1EA943FF003514EB /* Utilities.swift in Sources */,
+				4ECEDC761EA9ABE000FD5275 /* FeedCollectionViewController.swift in Sources */,
+				4ECEDC781EA9ABF200FD5275 /* FeedCollectionViewCell.swift in Sources */,
 				695C48531EA97642003514EB /* FeedTableViewCell.swift in Sources */,
 				4E20F7211EA969FC003E9D45 /* FeedTableViewController.swift in Sources */,
 				695C48381EA918AA003514EB /* ViewController.swift in Sources */,
