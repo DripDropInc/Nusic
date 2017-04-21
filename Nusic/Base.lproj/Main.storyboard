@@ -37,13 +37,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fvI-Df-8CE">
-                                <rect key="frame" x="0.0" y="10" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Nusic" id="flL-GH-d1M"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -133,6 +126,7 @@
                             <outlet property="delegate" destination="aq4-Py-3sX" id="cYc-5X-UE7"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="yww-Cp-jky"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imV-RF-z6U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
