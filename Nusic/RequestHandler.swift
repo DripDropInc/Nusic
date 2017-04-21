@@ -54,7 +54,6 @@ var articlesArray : NSMutableArray = []
                     print("Artist Name: \(String(describing: artistName))")
                     print("Artist ID: \(String(describing: artistId))")
                     
-                    
                     complete(artistName, artistId, artistPhoto)
                 }
             }
@@ -69,7 +68,7 @@ var articlesArray : NSMutableArray = []
     }
 
 // MARK: News Request
-func requestArtistNews(input Input : Int) {
+func requestArtistNews(input Input : Int, complete: @escaping (() -> Void)) {
     
     
     let sessionConfig = URLSessionConfiguration.default
@@ -116,18 +115,16 @@ func requestArtistNews(input Input : Int) {
                     print(sourceTitle)
                     print("---------------------------------------------------------------------------------------------")
                 
-                let newArticle = Article()
+                    let newArticle = Article()
                     newArticle.articleTitle = title.string
                     newArticle.articleSummary = summary.string
                     newArticle.articleURL = url.string
                     newArticle.articleImage = image.string
                     newArticle.articleSourceTitle = source.string
                     
-                 articlesArray.add(newArticle)
-                    
+                    articlesArray.add(newArticle)
                 }
-
-                
+                complete()
             }
         }
         else {

@@ -27,10 +27,9 @@ class FeedTableViewCell: UITableViewCell {
         cellHeadline.text = article.articleTitle
         cellBody.text = article.articleSummary
         cellSource.text = article.articleSourceTitle
-        if let url = article.articleImage {
-            cellImage.sd_setImage(with: URL(string: url))
+        if let imageURL = article.articleImage {
+            cellImage.sd_setImage(with: URL(string: imageURL))
         }
-        
     }
 
     

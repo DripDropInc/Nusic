@@ -17,7 +17,9 @@ class FeedTableViewController: UITableViewController {
         if let request = self.request {
             requestArtistID(input: request) { (artistName, artistId, artistPhoto) in
                 print("name \(artistName), id \(artistId), photo \(artistPhoto)")
-                requestArtistNews(input: artistId)
+                requestArtistNews(input: artistId) {
+                    self.tableView.reloadData()
+                }
             }
         }
         
@@ -42,19 +44,18 @@ class FeedTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return articlesArray.count
     }
 
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        
+        let article = articlesArray[indexPath.row] as! Article
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FeedTableViewCell
+        cell.article = article
 
         return cell
     }
-
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

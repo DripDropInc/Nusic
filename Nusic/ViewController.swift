@@ -26,11 +26,18 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //pass textfield string to destination view controller (FeedTableViewController) request property
+        if segue.identifier == "ShowFeedTableViewController" {
+            if let feedTableViewController = segue.destination as? FeedTableViewController {
+                feedTableViewController.request = textField.text
+            }
+        }
+        
     }
     
     @IBAction func button(_ sender: Any) {
-        // trigger segue to FeedTableViewController
         
+        // trigger segue to FeedTableViewController
+        self.performSegue(withIdentifier: "ShowFeedTableViewController", sender: self)
 //        
 //        requestArtistID(input: textField.text!) { (artistName, artistId, artistPhoto) in
 //            print("name \(artistName), id \(artistId), photo \(artistPhoto)")
