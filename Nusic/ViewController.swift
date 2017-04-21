@@ -16,31 +16,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //pass textfield string to destination view controller (FeedTableViewController) request property
-        if segue.identifier == "cell" {
+        if segue.identifier == "FeedCollectionViewController" {
             if let feedCollectionViewController = segue.destination as? FeedCollectionViewController {
                 feedCollectionViewController.request = textField.text
             }
         }
         
     }
-    
-    @IBAction func button(_ sender: Any) {
-        
-        // trigger segue to FeedTableViewController
-        self.performSegue(withIdentifier: "cell", sender: self)
-        
-    }
+
 }
 
