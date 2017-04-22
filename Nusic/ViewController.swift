@@ -26,10 +26,9 @@ class ViewController: UIViewController {
         if segue.identifier == "FeedCollectionViewController" {
             if let feedCollectionViewController = segue.destination as? FeedCollectionViewController {
                 feedCollectionViewController.request = textField.text
+        
             }
         }
-        
     }
-
+    
 }
-

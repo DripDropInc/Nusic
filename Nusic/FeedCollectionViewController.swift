@@ -11,6 +11,7 @@ import MBProgressHUD
 
 class FeedCollectionViewController: UICollectionViewController {
     
+    var artistFound: Bool!
     var artistID : String!
     var request: String! {
         didSet {
@@ -23,11 +24,13 @@ class FeedCollectionViewController: UICollectionViewController {
             requestArtistID(input: request) { (artistName, artistId, artistPhoto) in
                 
                 print("name \(artistName), id \(artistId), photo \(artistPhoto)")
-    
-        
+                if self.artistID == nil {
+                    self.artistFound = false
+                } else {
+                    self.artistFound == true
+                }
                 
-                
-                
+                    
 
                 requestArtistNews(input: artistId) {
                     DispatchQueue.main.async {

@@ -11,7 +11,6 @@ import SwiftyJSON
 import MBProgressHUD
 
 var articlesArray : NSMutableArray = []
-var artistFound : Bool!
 
 //MARK: Artist Request
 
@@ -58,12 +57,10 @@ var artistFound : Bool!
                     
                     print("Artist Name: \(String(describing: artistName))")
                     print("Artist ID: \(String(describing: artistId))")
-                        artistFound = true
                     
                     complete(artistName, artistId, artistPhoto)
                     } else {
                         print("Sorry no artist found")
-                        artistFound = false
                     }
             }
             else {

@@ -32,7 +32,7 @@
                                     <segue destination="t0P-gz-F9E" kind="show" identifier="FeedCollectionViewController" id="bSJ-5m-LFb"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g3X-YY-VQO">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist Name" textAlignment="center" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g3X-YY-VQO">
                                 <rect key="frame" x="60" y="212" width="295" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -83,7 +83,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="712"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UvQ-mD-ePs" id="9YT-kG-PGC">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="711"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="711.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="yBa-ym-Qtp">
@@ -156,7 +156,7 @@
         <scene sceneID="rK1-tB-AHf">
             <objects>
                 <collectionViewController id="t0P-gz-F9E" customClass="FeedCollectionViewController" customModule="Nusic" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" id="vB8-Il-FO5">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" dataMode="prototypes" id="vB8-Il-FO5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -240,6 +240,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="0DL-Mc-cdV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                             <color key="textColor" red="0.98431372549019602" green="0.31372549019607843" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
