@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E20F7211EA969FC003E9D45 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E20F7201EA969FC003E9D45 /* FeedTableViewController.swift */; };
 		4ECEDC761EA9ABE000FD5275 /* FeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECEDC751EA9ABE000FD5275 /* FeedCollectionViewController.swift */; };
 		4ECEDC781EA9ABF200FD5275 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECEDC771EA9ABF200FD5275 /* FeedCollectionViewCell.swift */; };
 		695C48361EA918AA003514EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695C48351EA918AA003514EB /* AppDelegate.swift */; };
@@ -19,13 +18,11 @@
 		695C484B1EA918BE003514EB /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695C484A1EA918BE003514EB /* RequestHandler.swift */; };
 		695C484F1EA943FF003514EB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695C484E1EA943FF003514EB /* Utilities.swift */; };
 		695C48511EA96751003514EB /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695C48501EA96751003514EB /* Article.swift */; };
-		695C48531EA97642003514EB /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695C48521EA97642003514EB /* FeedTableViewCell.swift */; };
 		E0BC8364388A8C6E7DFCCAB2 /* Pods_Nusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330EB91E5B2334D7428F47E7 /* Pods_Nusic.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		330EB91E5B2334D7428F47E7 /* Pods_Nusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E20F7201EA969FC003E9D45 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		4ECEDC751EA9ABE000FD5275 /* FeedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewController.swift; sourceTree = "<group>"; };
 		4ECEDC771EA9ABF200FD5275 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		54C8E3978A21D2AB178CFD00 /* Pods-Nusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nusic/Pods-Nusic.release.xcconfig"; sourceTree = "<group>"; };
@@ -40,7 +37,6 @@
 		695C484A1EA918BE003514EB /* RequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
 		695C484E1EA943FF003514EB /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		695C48501EA96751003514EB /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
-		695C48521EA97642003514EB /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		F9D7589793917F61289D3D78 /* Pods-Nusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nusic/Pods-Nusic.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,8 +87,6 @@
 				695C48371EA918AA003514EB /* ViewController.swift */,
 				695C484A1EA918BE003514EB /* RequestHandler.swift */,
 				695C48501EA96751003514EB /* Article.swift */,
-				4E20F7201EA969FC003E9D45 /* FeedTableViewController.swift */,
-				695C48521EA97642003514EB /* FeedTableViewCell.swift */,
 				695C484E1EA943FF003514EB /* Utilities.swift */,
 				4ECEDC751EA9ABE000FD5275 /* FeedCollectionViewController.swift */,
 				4ECEDC771EA9ABF200FD5275 /* FeedCollectionViewCell.swift */,
@@ -238,8 +232,6 @@
 				695C484F1EA943FF003514EB /* Utilities.swift in Sources */,
 				4ECEDC761EA9ABE000FD5275 /* FeedCollectionViewController.swift in Sources */,
 				4ECEDC781EA9ABF200FD5275 /* FeedCollectionViewCell.swift in Sources */,
-				695C48531EA97642003514EB /* FeedTableViewCell.swift in Sources */,
-				4E20F7211EA969FC003E9D45 /* FeedTableViewController.swift in Sources */,
 				695C48381EA918AA003514EB /* ViewController.swift in Sources */,
 				695C48511EA96751003514EB /* Article.swift in Sources */,
 				695C483E1EA918AA003514EB /* Nusic.xcdatamodeld in Sources */,
