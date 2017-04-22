@@ -58,7 +58,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="g3X-YY-VQO" secondAttribute="trailing" constant="39" id="xdx-U7-4Xt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="vMt-MD-SB4"/>
+                    <navigationItem key="navigationItem" id="vMt-MD-SB4">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="tsx-KS-EnO"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="textField" destination="g3X-YY-VQO" id="JrO-As-zuR"/>
                     </connections>
@@ -235,9 +237,13 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GKi-4b-Fre" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0DL-Mc-cdV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="0DL-Mc-cdV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                            <color key="textColor" red="0.98431372549019602" green="0.31372549019607843" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

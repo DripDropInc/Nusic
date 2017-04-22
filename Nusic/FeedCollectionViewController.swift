@@ -37,6 +37,7 @@ class FeedCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "NUSIC"
         let layout = self.collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         let itemSize = CGSize(width: self.view.bounds.width, height: self.view.bounds.height)
         layout.itemSize = itemSize

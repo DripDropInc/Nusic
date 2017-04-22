@@ -125,7 +125,7 @@ func requestArtistNews(input Input : Int, complete: @escaping (() -> Void)) {
                     newArticle.articleImage = image.string
                     newArticle.articleSourceTitle = source.string
                     
-                    articlesArray.add(newArticle)
+                    articlesArray.insert(newArticle, at: 0)
                 }
                 complete()
             }
