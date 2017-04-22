@@ -20,6 +20,7 @@ class ViewController: UIViewController {
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         //pass textfield string to destination view controller (FeedTableViewController) request property
         if segue.identifier == "FeedCollectionViewController" {
             if let feedCollectionViewController = segue.destination as? FeedCollectionViewController {

@@ -11,6 +11,7 @@ import SwiftyJSON
 import MBProgressHUD
 
 var articlesArray : NSMutableArray = []
+var artistFound : Bool!
 
 //MARK: Artist Request
 
@@ -45,10 +46,11 @@ var articlesArray : NSMutableArray = []
                 let statusCode = (response as! HTTPURLResponse).statusCode
                 print("URL Session Task Succeeded: HTTP \(statusCode)")
                 
-                // Check if data is returned
                 if let data = data {
                     let json = JSON(data: data)
                     let result = json["results"].arrayValue
+                    if result.count > 0 {
+                    
                     let artist = result[0].dictionaryValue
                     let artistName = artist["name"]!.stringValue
                     let artistId = artist["mkid"]!.intValue
@@ -56,15 +58,19 @@ var articlesArray : NSMutableArray = []
                     
                     print("Artist Name: \(String(describing: artistName))")
                     print("Artist ID: \(String(describing: artistId))")
+                        artistFound = true
                     
                     complete(artistName, artistId, artistPhoto)
-                }
+                    } else {
+                        print("Sorry no artist found")
+                        artistFound = false
+                    }
             }
             else {
                 // Failure
                 print("URL Session Task Failed: %@", error!.localizedDescription);
             }
-        })
+            }})
         
         task.resume()
         session.finishTasksAndInvalidate()
@@ -125,7 +131,7 @@ func requestArtistNews(input Input : Int, complete: @escaping (() -> Void)) {
                     newArticle.articleImage = image.string
                     newArticle.articleSourceTitle = source.string
                     
-                    articlesArray.add(newArticle)
+                    articlesArray.insert(newArticle, at: 0)
                 }
                 complete()
             }
