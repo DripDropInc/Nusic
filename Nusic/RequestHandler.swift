@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import MBProgressHUD
 
-var articlesArray : NSMutableArray = []
+var articlesArray = [Article]()
 
 //MARK: Artist Request
 

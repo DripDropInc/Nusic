@@ -8,10 +8,10 @@
 //  Copyright © 2017 Nusic_Inc. All rights reserved.
 //
 
-import Foundation
+
 import UIKit
 
-class Article: NSObject {
+class Article {
     
     var articleTitle: String?
     var articleSummary: String?

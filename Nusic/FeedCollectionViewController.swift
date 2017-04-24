@@ -27,7 +27,7 @@ class FeedCollectionViewController: UICollectionViewController {
                 if self.artistID == nil {
                     self.artistFound = false
                 } else {
-                    self.artistFound == true
+                    self.artistFound = true
                 }
                 
                     
@@ -70,7 +70,7 @@ class FeedCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let article = articlesArray[indexPath.row] as! Article
+        let article = articlesArray[indexPath.row] 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FeedCollectionViewCell
         
         cell.article = article
