@@ -10,10 +10,14 @@ import Foundation
 import SwiftyJSON
 import MBProgressHUD
 
+
+
 var articlesArray = [Article]()
 var sortedArticlesArray = [Article]()
 
 //MARK: Artist Request
+
+
 
     func requestArtistID(input Input : String, complete: @escaping ((String,Int,String) -> Void) ) {
         
