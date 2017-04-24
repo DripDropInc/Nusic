@@ -78,4 +78,18 @@ class FeedCollectionViewController: UICollectionViewController {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //pass URL string to destination view controller (WebTableViewController) and assign to passedURL        
+        if segue.identifier == "WebViewController" {
+            if let webCollectionViewController = segue.destination as? WebViewController {
+                let cell = (sender as! UIButton).superview?.superview as! FeedCollectionViewCell
+                webCollectionViewController.passedURL = cell.article.articleURL
+                
+            }
+        }
+    }
+   
+
+    
 }

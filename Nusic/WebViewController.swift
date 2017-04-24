@@ -8,7 +8,11 @@
 
 import UIKit
 
+
+
 class WebViewController: UIViewController, UIWebViewDelegate {
+    
+    var passedURL: String!
 
     @IBOutlet weak var webViewer: UIWebView!
     
@@ -19,7 +23,7 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     }
     
     func loadWebPage () {
-        let url = URL(string: articlesArray[0].articleURL!)
+        let url = URL(string: passedURL!)
         let request = URLRequest(url: url!)
         webViewer.loadRequest(request)
         
