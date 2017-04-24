@@ -11,6 +11,7 @@ import MBProgressHUD
 
 class FeedCollectionViewController: UICollectionViewController {
     
+    
     var artistFound: Bool!
     var artistID : String!
     var request: String! {
