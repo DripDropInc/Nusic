@@ -119,6 +119,7 @@ func requestArtistNews(input Input : Int, complete: @escaping (() -> Void)) {
                     let year = publishDate["year"]
                     let month = publishDate["month"]
                     let day = publishDate["day"]
+                    let language = currentIndex["language"]
                 
                     
                     print("\(day) of \(month) \(year) is when this was published")
@@ -136,8 +137,10 @@ func requestArtistNews(input Input : Int, complete: @escaping (() -> Void)) {
                     newArticle.articleImage = image.string
                     newArticle.articleSourceTitle = source.string
                    newArticle.articleDate = newArticle.date(Day: day.intValue, Month: month.intValue, Year: year.intValue)
+                    newArticle.articleLanguage = language.string
+                    if newArticle.articleLanguage!.contains("en") {
                     
-                    articlesArray.insert(newArticle, at: 0)
+                                        articlesArray.insert(newArticle, at: 0)
                     articlesArray.sort(by: { $0.articleDate?.compare($1.articleDate!) == .orderedDescending })
 
                 }
@@ -147,7 +150,7 @@ func requestArtistNews(input Input : Int, complete: @escaping (() -> Void)) {
         else {
             // Failure
             print("URL Session Task Failed: %@", error!.localizedDescription);
-        }
+            }  }
     })
     
     task.resume()
