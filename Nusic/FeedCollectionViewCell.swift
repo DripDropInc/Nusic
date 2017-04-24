@@ -13,8 +13,9 @@ class FeedCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var body: UILabel!
     @IBOutlet weak var headline: UILabel!
-    
+   
     @IBOutlet weak var sourceTitle: UILabel!
+    
     var article: Article! {
         didSet {
             configureCell()

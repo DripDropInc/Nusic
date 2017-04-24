@@ -135,7 +135,7 @@ func requestArtistNews(input Input : Int, complete: @escaping (() -> Void)) {
                     newArticle.articleSummary = summary.string
                     newArticle.articleURL = url.string
                     newArticle.articleImage = image.string
-                    newArticle.articleSourceTitle = source.string
+                    newArticle.articleSourceTitle = sourceTitle.string
                    newArticle.articleDate = newArticle.date(Day: day.intValue, Month: month.intValue, Year: year.intValue)
                     newArticle.articleLanguage = language.string
                     if newArticle.articleLanguage!.contains("en") {
