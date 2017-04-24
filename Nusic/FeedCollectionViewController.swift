@@ -70,6 +70,9 @@ class FeedCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+
+        
         let article = articlesArray[indexPath.row] 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FeedCollectionViewCell
         
@@ -89,7 +92,4 @@ class FeedCollectionViewController: UICollectionViewController {
             }
         }
     }
-   
-
-    
 }

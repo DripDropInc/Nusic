@@ -11,6 +11,7 @@ import SwiftyJSON
 import MBProgressHUD
 
 var articlesArray = [Article]()
+var sortedArticlesArray = [Article]()
 
 //MARK: Artist Request
 
@@ -54,6 +55,7 @@ var articlesArray = [Article]()
                     let artistName = artist["name"]!.stringValue
                     let artistId = artist["mkid"]!.intValue
                     let artistPhoto = artist["image"]!.stringValue
+                
                     
                     print("Artist Name: \(String(describing: artistName))")
                     print("Artist ID: \(String(describing: artistId))")
@@ -113,7 +115,13 @@ func requestArtistNews(input Input : Int, complete: @escaping (() -> Void)) {
                     let image = currentIndex["image"]
                     let source = currentIndex["source"]
                     let sourceTitle = source["title"]
+                    let publishDate = currentIndex["publish_date"]
+                    let year = publishDate["year"]
+                    let month = publishDate["month"]
+                    let day = publishDate["day"]
+                
                     
+                    print("\(day) of \(month) \(year) is when this was published")
                     print(title)
                     print(summary)
                     print(url)
@@ -127,8 +135,11 @@ func requestArtistNews(input Input : Int, complete: @escaping (() -> Void)) {
                     newArticle.articleURL = url.string
                     newArticle.articleImage = image.string
                     newArticle.articleSourceTitle = source.string
+                   newArticle.articleDate = newArticle.date(Day: day.intValue, Month: month.intValue, Year: year.intValue)
                     
                     articlesArray.insert(newArticle, at: 0)
+                    articlesArray.sort(by: { $0.articleDate?.compare($1.articleDate!) == .orderedDescending })
+
                 }
                 complete()
             }
@@ -141,6 +152,8 @@ func requestArtistNews(input Input : Int, complete: @escaping (() -> Void)) {
     
     task.resume()
     session.finishTasksAndInvalidate()
+    
 }
+
 
 

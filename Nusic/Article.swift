@@ -18,5 +18,17 @@ class Article {
     var articleURL: String?
     var articleImage: String?
     var articleSourceTitle: String?
+    var articleDate : Date?
     
+func date(Day day : Int, Month month : Int, Year year : Int) -> Date {
+    
+    let dateString = "\(year)-\(month)-\(day)"
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    
+    let date = dateFormatter.date(from: dateString)
+    
+    return date!
+}
 }
