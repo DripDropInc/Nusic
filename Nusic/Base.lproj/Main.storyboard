@@ -137,6 +137,9 @@
                                             <state key="normal" title="Artist Bio">
                                                 <color key="titleColor" red="0.98431372549999996" green="0.31372549020000001" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <segue destination="hJm-6e-3UW" kind="show" identifier="BioViewController" id="OWB-Rq-gcv"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFk-Xo-Nyt">
                                             <rect key="frame" x="297" y="588" width="86" height="30"/>
@@ -182,6 +185,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZA7-VN-U8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1797.1014492753625" y="207.88043478260872"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="M0j-4m-55M">
+            <objects>
+                <viewController id="hJm-6e-3UW" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YTx-sg-FQN"/>
+                        <viewControllerLayoutGuide type="bottom" id="5D8-mY-UM3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HAj-Mm-YuC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Gt-Pm-YKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2578" y="529"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="DfK-Fr-OVY">
