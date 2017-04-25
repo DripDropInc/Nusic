@@ -9,7 +9,7 @@
 import UIKit
 import MBProgressHUD
 
-class FeedCollectionViewController: UICollectionViewController {
+class FeedCollectionViewController: UICollectionViewController, FeedCellDelegate {
     
     
     var artistFound: Bool!
@@ -78,19 +78,35 @@ class FeedCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FeedCollectionViewCell
         
         cell.article = article
+        cell.delegate = self
         
         return cell
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         //pass URL string to destination view controller (WebTableViewController) and assign to passedURL        
         if segue.identifier == "WebViewController" {
             if let webCollectionViewController = segue.destination as? WebViewController {
-                let cell = (sender as! UIButton).superview?.superview as! FeedCollectionViewCell
-                webCollectionViewController.passedURL = cell.article.articleURL
+                if let button = sender as? UIButton {
+                    let cell = button.superview?.superview as! FeedCollectionViewCell
+                    webCollectionViewController.passedURL = cell.article.articleURL
+                }
+                
+                if let cell = sender as? FeedCollectionViewCell {
+                    webCollectionViewController.passedURL = cell.article.articleURL
+                }
                 
             }
+            
         }
+
+    }
+    
+    // MARK: - FeedCellDelegate
+    
+    func showDetails(cell: FeedCollectionViewCell) {
+        performSegue(withIdentifier: "WebViewController", sender: cell)
     }
 }
