@@ -11,9 +11,8 @@ import MBProgressHUD
 
 class FeedCollectionViewController: UICollectionViewController, FeedCellDelegate {
     
-    
-    var artistFound: Bool!
-    var artistID : String!
+    var artistID:Int?
+
     var request: String! {
         didSet {
             
@@ -25,21 +24,23 @@ class FeedCollectionViewController: UICollectionViewController, FeedCellDelegate
             requestArtistID(input: request) { (artistName, artistId, artistPhoto) in
                 
                 print("name \(artistName), id \(artistId), photo \(artistPhoto)")
-                if self.artistID == nil {
-                    self.artistFound = false
-                } else {
-                    self.artistFound = true
-                }
                 
-                    
-
+                
+                self.artistID = artistId
+                
                 requestArtistNews(input: artistId) {
+
+                    
                     DispatchQueue.main.async {
                         
                         //dismiss HUD and reload
-                        MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+                        MBProgressHUD.hide(for: self.view, animated: true)
+//                        MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+                        
                         self.collectionView?.reloadData()
+                        
                     }
+                    
                 }
             }
         }
@@ -97,6 +98,17 @@ class FeedCollectionViewController: UICollectionViewController, FeedCellDelegate
                 if let cell = sender as? FeedCollectionViewCell {
                     webCollectionViewController.passedURL = cell.article.articleURL
                 }
+                
+                if segue.identifier == "BioViewController" {
+                    if let bioViewController = segue.destination as? BioViewController {
+                        if let button = sender as? UIButton {
+                            let cell = button.superview?.superview as! FeedCollectionViewCell
+                            requestArtistBio(input: artistId, complete: <#T##((String) -> Void)##((String) -> Void)##(String) -> Void#>)
+                            bioViewController.passedWikiURL = bioURL
+                        }
+                    }
+                }
+
                 
             }
             

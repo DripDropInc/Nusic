@@ -186,10 +186,10 @@
             </objects>
             <point key="canvasLocation" x="1797.1014492753625" y="207.88043478260872"/>
         </scene>
-        <!--View Controller-->
+        <!--Bio View Controller-->
         <scene sceneID="M0j-4m-55M">
             <objects>
-                <viewController id="hJm-6e-3UW" sceneMemberID="viewController">
+                <viewController id="hJm-6e-3UW" customClass="BioViewController" customModule="Nusic" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YTx-sg-FQN"/>
                         <viewControllerLayoutGuide type="bottom" id="5D8-mY-UM3"/>
@@ -197,12 +197,27 @@
                     <view key="view" contentMode="scaleToFill" id="HAj-Mm-YuC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBy-Ba-aG0">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XBy-Ba-aG0" firstAttribute="leading" secondItem="HAj-Mm-YuC" secondAttribute="leading" id="4T7-EA-fOD"/>
+                            <constraint firstItem="5D8-mY-UM3" firstAttribute="top" secondItem="XBy-Ba-aG0" secondAttribute="bottom" id="Nhs-S6-KEj"/>
+                            <constraint firstItem="XBy-Ba-aG0" firstAttribute="top" secondItem="YTx-sg-FQN" secondAttribute="bottom" id="Z58-Fl-qby"/>
+                            <constraint firstAttribute="trailing" secondItem="XBy-Ba-aG0" secondAttribute="trailing" id="qRJ-kV-h43"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="wikiWebView" destination="XBy-Ba-aG0" id="t98-lA-7wJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Gt-Pm-YKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2578" y="529"/>
+            <point key="canvasLocation" x="2576.811594202899" y="527.44565217391312"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="DfK-Fr-OVY">
