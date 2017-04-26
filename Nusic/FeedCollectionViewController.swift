@@ -9,10 +9,10 @@
 import UIKit
 import MBProgressHUD
 
-class FeedCollectionViewController: UICollectionViewController, FeedCellDelegate {
+class FeedCollectionViewController: UICollectionViewController {
     
     var artistID:Int?
-
+    
     var request: String! {
         didSet {
             
@@ -20,8 +20,8 @@ class FeedCollectionViewController: UICollectionViewController, FeedCellDelegate
             let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
             loadingNotification.mode = MBProgressHUDMode.indeterminate
             loadingNotification.label.text = "Loading"
-
-            requestArtistID(input: request) { (artistName, artistId, artistPhoto) in
+            
+            requestArtistID(Input: request) { (artistName, artistId, artistPhoto) in
                 
                 print("name \(artistName), id \(artistId), photo \(artistPhoto)")
                 
@@ -29,13 +29,13 @@ class FeedCollectionViewController: UICollectionViewController, FeedCellDelegate
                 self.artistID = artistId
                 
                 requestArtistNews(input: artistId) {
-
+                    
                     
                     DispatchQueue.main.async {
                         
                         //dismiss HUD and reload
                         MBProgressHUD.hide(for: self.view, animated: true)
-//                        MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+                        //                        MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
                         
                         self.collectionView?.reloadData()
                         
@@ -68,57 +68,59 @@ class FeedCollectionViewController: UICollectionViewController, FeedCellDelegate
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return articlesArray.count
+        return finalArray.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-
         
-        let article = articlesArray[indexPath.row] 
+        
+        let article = finalArray[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FeedCollectionViewCell
         
         cell.article = article
-        cell.delegate = self
-        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(segueToWebView))
+        cell.tap = tap
         return cell
+    }
+    
+    func segueToWebView() {
+        performSegue(withIdentifier: "WebViewController", sender: self)
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        //pass URL string to destination view controller (WebTableViewController) and assign to passedURL        
-        if segue.identifier == "WebViewController" {
-            if let webCollectionViewController = segue.destination as? WebViewController {
-                if let button = sender as? UIButton {
-                    let cell = button.superview?.superview as! FeedCollectionViewCell
-                    webCollectionViewController.passedURL = cell.article.articleURL
-                }
-                
-                if let cell = sender as? FeedCollectionViewCell {
-                    webCollectionViewController.passedURL = cell.article.articleURL
-                }
-                
-                if segue.identifier == "BioViewController" {
-                    if let bioViewController = segue.destination as? BioViewController {
-                        if let button = sender as? UIButton {
-                            let cell = button.superview?.superview as! FeedCollectionViewCell
-                            requestArtistBio(input: artistId, complete: <#T##((String) -> Void)##((String) -> Void)##(String) -> Void#>)
-                            bioViewController.passedWikiURL = bioURL
-                        }
-                    }
-                }
-
-                
+        // to make the artistID a field in the article
+        
+        guard let visibleCellIndexPath = (self.collectionView?.indexPathsForVisibleItems)?.first else {
+            print(#line, "no visible cell")
+            return
+        }
+        
+        if segue.identifier == "BioViewController" {
+            
+            let articleClass = finalArray[visibleCellIndexPath.row]
+            guard let bioViewController = segue.destination as? BioViewController, let artistID = articleClass.articleArtistID  else {
+                return
             }
             
+            requestArtistBio(input: artistID , complete: { (bioURL: String) in
+                bioViewController.passedWikiURL = bioURL})
         }
-
+        
+        if segue.identifier == "WebViewController" {
+            if let webCollectionViewController = segue.destination as? WebViewController {
+                
+                guard let articleURL = finalArray[visibleCellIndexPath.item].articleURL else {
+                    print(#line, "no article url")
+                    return
+                }
+                
+                webCollectionViewController.passedURL = articleURL
+            }
+        }
+        
     }
     
-    // MARK: - FeedCellDelegate
-    
-    func showDetails(cell: FeedCollectionViewCell) {
-        performSegue(withIdentifier: "WebViewController", sender: cell)
     }
-}

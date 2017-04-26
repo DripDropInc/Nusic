@@ -9,19 +9,22 @@
 import UIKit
 import SDWebImage
 
-protocol FeedCellDelegate {
-    func showDetails(cell: FeedCollectionViewCell)
-}
-
 class FeedCollectionViewCell: UICollectionViewCell {
+    
+    
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var body: UILabel!
     @IBOutlet weak var headline: UILabel!
-   
-    @IBOutlet weak var sourceTitle: UILabel!
-    var delegate : FeedCellDelegate?
     
-    var imageTapRecognizer : UITapGestureRecognizer!
+    @IBOutlet weak var sourceTitle: UILabel!
+    
+    var tap : UITapGestureRecognizer! {
+        didSet {
+            if image.gestureRecognizers == nil || image.gestureRecognizers?.count == 0 {
+                image.addGestureRecognizer(tap)
+            }
+        }
+    }
     
     var article: Article! {
         didSet {
@@ -29,17 +32,7 @@ class FeedCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func imageTapped(_ sender: UIImage) {
-        // Call delegate function (back to collection view) and push segue
-        delegate?.showDetails(cell: self)
-    }
-
     func configureCell() {
-        if (imageTapRecognizer == nil) {
-            imageTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
-            imageTapRecognizer.numberOfTapsRequired = 1
-        }
-        image.addGestureRecognizer(imageTapRecognizer)
         
         headline.text = article.articleTitle
         body.text = article.articleSummary
@@ -48,6 +41,6 @@ class FeedCollectionViewCell: UICollectionViewCell {
         if let imageURL = article.articleImage {
             image.sd_setImage(with: URL(string: imageURL))
         }
-}
-
+    }
+    
 }

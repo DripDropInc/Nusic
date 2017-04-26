@@ -120,7 +120,7 @@
                                                 <color key="titleColor" red="0.98431372549999996" green="0.31372549020000001" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <segue destination="3nX-ru-G2Y" kind="show" identifier="WebViewController" id="9YE-9N-y8c"/>
+                                                <segue destination="3nX-ru-G2Y" kind="show" identifier="WebViewController" id="wYS-0k-WwC"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zS-dt-u6q">
@@ -181,6 +181,9 @@
                             <outlet property="delegate" destination="t0P-gz-F9E" id="pQL-2p-yId"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <segue destination="3nX-ru-G2Y" kind="show" identifier="WebViewController" id="RZg-FM-8Ue"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZA7-VN-U8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -250,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wj7-Qe-gKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2557" y="-143"/>
+            <point key="canvasLocation" x="2852" y="-151"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="L9H-2g-RZr">
@@ -277,4 +280,7 @@
             <point key="canvasLocation" x="95.652173913043484" y="207.88043478260872"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="RZg-FM-8Ue"/>
+    </inferredMetricsTieBreakers>
 </document>

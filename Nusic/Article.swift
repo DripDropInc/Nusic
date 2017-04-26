@@ -20,6 +20,7 @@ class Article {
     var articleSourceTitle: String?
     var articleDate : Date?
     var articleLanguage: String?
+    var articleArtistID: Int?
     
 func date(Day day : Int, Month month : Int, Year year : Int) -> Date {
     

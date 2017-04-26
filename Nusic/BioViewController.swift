@@ -9,10 +9,17 @@
 import UIKit
 
 class BioViewController: UIViewController, UIWebViewDelegate {
-
+    
     @IBOutlet weak var wikiWebView: UIWebView!
     
-    var passedWikiURL: String!
+    var passedWikiURL: String? {
+        didSet {
+            guard let _ = wikiWebView else {
+                return
+            }
+            loadWebPage()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +28,11 @@ class BioViewController: UIViewController, UIWebViewDelegate {
     }
     
     func loadWebPage () {
-        let url = URL(string: passedWikiURL!)
+        guard let wikiURL = self.passedWikiURL else {
+            return
+        }
+        print(#line, wikiURL)
+        let url = URL(string: wikiURL)
         let request = URLRequest(url: url!)
         wikiWebView.loadRequest(request)
         
@@ -39,23 +50,11 @@ class BioViewController: UIViewController, UIWebViewDelegate {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         print("There was a problem loading the web page!")
     }
-
     
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
