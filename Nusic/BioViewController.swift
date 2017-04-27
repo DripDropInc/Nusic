@@ -27,15 +27,30 @@ class BioViewController: UIViewController, UIWebViewDelegate {
         loadWebPage()
     }
     
+    func showUrlAlert()
+    {
+        let shareAlert = UIAlertController(title: "Error", message: "That URL does not exist", preferredStyle: .alert)
+        let action = UIAlertAction (title: "Dismiss", style: .cancel, handler: nil)
+        
+        shareAlert.addAction(action)
+        present(shareAlert, animated: true, completion: nil)
+    }
+
+    
     func loadWebPage () {
         guard let wikiURL = self.passedWikiURL else {
             return
         }
         print(#line, wikiURL)
         let url = URL(string: wikiURL)
+        if url == nil {
+        showUrlAlert()
+            self.navigationController?.popViewController(animated: true)
+            
+        } else {
         let request = URLRequest(url: url!)
         wikiWebView.loadRequest(request)
-        
+        }
     }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
@@ -53,8 +68,6 @@ class BioViewController: UIViewController, UIWebViewDelegate {
     
     
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    
 }

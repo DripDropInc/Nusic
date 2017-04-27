@@ -8,10 +8,12 @@
 
 import UIKit
 import MBProgressHUD
+import Social
 
 class FeedCollectionViewController: UICollectionViewController {
     
     var artistID:Int?
+    var articleURLToPost: String?
     
     var request: String! {
         didSet {
@@ -20,6 +22,8 @@ class FeedCollectionViewController: UICollectionViewController {
             let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
             loadingNotification.mode = MBProgressHUDMode.indeterminate
             loadingNotification.label.text = "Fetching Artist News....."
+  
+            //MARK: Request Artis ID, Request News
             
             requestArtistID(Input: request) { (artistName, artistId, artistPhoto) in
                 
@@ -28,8 +32,8 @@ class FeedCollectionViewController: UICollectionViewController {
                 
                 self.artistID = artistId
                 
+                
                 requestArtistNews(input: artistId) {
-                    
                     
                     DispatchQueue.main.async {
                         
@@ -88,7 +92,7 @@ class FeedCollectionViewController: UICollectionViewController {
         performSegue(withIdentifier: "WebViewController", sender: self)
     }
     
-    
+// MARK: Prepare For Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // to make the artistID a field in the article
@@ -105,8 +109,9 @@ class FeedCollectionViewController: UICollectionViewController {
                 return
             }
             
-            requestArtistBio(input: artistID , complete: { (bioURL: String) in
+             requestArtistBio(input: artistID , complete: { (bioURL: String) in
                 bioViewController.passedWikiURL = bioURL})
+            
         }
         
         if segue.identifier == "WebViewController" {
@@ -122,5 +127,65 @@ class FeedCollectionViewController: UICollectionViewController {
         }
         
     }
-    
+
+//MARK: Share Button
+    @IBAction func shareButtonPressed(_ sender: Any) {
+        
+        guard let visibleCellIndexPath = (self.collectionView?.indexPathsForVisibleItems)?.first else {
+            print(#line, "no visible cell")
+            return
+        }
+ 
+        let articleURL = finalArray[visibleCellIndexPath.item].articleURL
+        
+        //Alert
+        let alert = UIAlertController(title: "Share", message: "Share Artist News", preferredStyle:.actionSheet)
+        //Action 1
+        let actionOne = UIAlertAction(title: "Share On Facebook", style: .default) { (action) in
+            
+            //Check if user is connected to facebook
+            if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook)
+            {
+                let post = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                
+                post?.setInitialText("\(String(describing: articleURL))")
+               // post?.add(url: URL!(articleURL))
+                
+                self.present(post!, animated: true, completion: nil)
+            }else {
+                self.showShareAlert(service: "Facebook")
+            }
+        }
+        //Action 2
+        let actionTwo = UIAlertAction(title: "Share On Twitter", style: .default) { (action) in
+            
+            //Check if user is connected to facebook
+            if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter)
+            {
+                let post = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                post?.setInitialText("\(String(describing: articleURL))")
+                self.present(post!, animated: true, completion: nil)
+            }else {
+                self.showShareAlert(service: "Twitter")
+            }
+        }
+
+        //Add action to action sheet
+        alert.addAction(actionOne)
+        alert.addAction(actionTwo)
+        // Present alert
+        self.present(alert, animated: true, completion: nil)
+
     }
+    
+    func showShareAlert(service:String)
+    {
+        let shareAlert = UIAlertController(title: "Error", message: "You are not connected to \(service)", preferredStyle: .alert)
+        let action = UIAlertAction (title: "Dismiss", style: .cancel, handler: nil)
+        
+        shareAlert.addAction(action)
+        present(shareAlert, animated: true, completion: nil)
+    }
+    
+    
+}
