@@ -19,7 +19,7 @@ class FeedCollectionViewController: UICollectionViewController {
             //progress HUD
             let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
             loadingNotification.mode = MBProgressHUDMode.indeterminate
-            loadingNotification.label.text = "Loading"
+            loadingNotification.label.text = "Fetching Artist News....."
             
             requestArtistID(Input: request) { (artistName, artistId, artistPhoto) in
                 
