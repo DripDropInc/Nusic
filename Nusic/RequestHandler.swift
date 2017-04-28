@@ -22,7 +22,7 @@ var numberOfArticlesPerArtist = [Int]()
 
 
 
-func requestArtistID(Input input : String, complete: @escaping ((String,Int,String) -> Void) ) {
+func requestArtistID(Input input : String, complete: @escaping ((String?,Int?,String?) -> Void) ) {
     
     
     
@@ -69,16 +69,13 @@ func requestArtistID(Input input : String, complete: @escaping ((String,Int,Stri
                     
                     complete(artistName, artistId, artistPhoto)
                 } else {
-                   
-                                       
-                   
-                    
-
+                    complete(nil,nil,nil)
                     print("Sorry no artist found")
                 }
             }
             else {
                 // Failure
+                complete(nil,nil,nil)
                 print("URL Session Task Failed: %@", error!.localizedDescription);
             }
         }})

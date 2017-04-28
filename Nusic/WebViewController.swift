@@ -30,27 +30,16 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     }
 
     func webViewDidStartLoad(_ webView: UIWebView) {
-//    UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    UIApplication.shared.isNetworkActivityIndicatorVisible = true
 }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-//    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    UIApplication.shared.isNetworkActivityIndicatorVisible = false
 }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-//    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    UIApplication.shared.isNetworkActivityIndicatorVisible = false
     print("There was a problem loading the web page!")
 }
-//
-//
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
-//    
-
-    deinit {
-        
-    }
     
 }

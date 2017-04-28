@@ -12,7 +12,26 @@ import Social
 
 class FeedCollectionViewController: UICollectionViewController {
     
-    var artistID:Int?
+    
+    
+    
+    //var artistID: Int! {
+    //    didSet {
+    //        let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+    //        loadingNotification.mode = MBProgressHUDMode.indeterminate
+    //        loadingNotification.label.text = "Wait....."
+    //
+    //        requestArtistNews(input: artistID) {
+    //            DispatchQueue.main.async {
+    //                MBProgressHUD.hide(for: self.view, animated: true)
+    //                self.collectionView?.reloadData()
+    //
+    //            }
+    //        }
+    //    }
+    //}
+    
+    //    var artistID:Int?
     var articleURLToPost: String?
     
     //MARK: URL Alert
@@ -24,49 +43,6 @@ class FeedCollectionViewController: UICollectionViewController {
         shareAlert.addAction(action)
         present(shareAlert, animated: true, completion: nil)
     }
-
-    
-    var request: String! {
-        didSet {
-            
-            //progress HUD
-            let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
-            loadingNotification.mode = MBProgressHUDMode.indeterminate
-            loadingNotification.label.text = "Fetching Artist News....."
-  
-            //MARK: Request Artist ID, Request News
-            
-            requestArtistID(Input: request) { (artistName, artistId, artistPhoto) in
-                
-                print("name \(artistName), id \(artistId), photo \(artistPhoto)")
-                
-//                if self.artistID == nil {
-//                    MBProgressHUD.hide(for: self.view, animated: true)
-//                    self.showUrlAlert()
-//                    self.navigationController?.popViewController(animated:true)
-//                } else {
-
-                
-                self.artistID = artistId
-//                }
-                
-                
-                requestArtistNews(input: artistId) {
-                    
-                    DispatchQueue.main.async {
-                        
-                        //dismiss HUD and reload
-                        MBProgressHUD.hide(for: self.view, animated: true)
-                        
-                        
-                        self.collectionView?.reloadData()
-                        
-                    }
-                    
-                }
-            }
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +50,16 @@ class FeedCollectionViewController: UICollectionViewController {
         let layout = self.collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         let itemSize = CGSize(width: self.view.bounds.width, height: self.view.bounds.height)
         layout.itemSize = itemSize
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if finalArray.count < 1 {
+            // show popover
+            performSegue(withIdentifier: "ViewController", sender: self)
+        }
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -89,14 +75,10 @@ class FeedCollectionViewController: UICollectionViewController {
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return finalArray.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
-        
         let article = finalArray[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FeedCollectionViewCell
         
@@ -110,10 +92,16 @@ class FeedCollectionViewController: UICollectionViewController {
         performSegue(withIdentifier: "WebViewController", sender: self)
     }
     
-// MARK: Prepare For Segue
+    // MARK: Prepare For Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // to make the artistID a field in the article
+        
+        if segue.identifier == "ViewController" {
+            let popover = segue.destination as! ViewController
+            popover.callbackBlock = fetchArticlesWith(artistID:)
+            
+        }
         
         guard let visibleCellIndexPath = (self.collectionView?.indexPathsForVisibleItems)?.first else {
             print(#line, "no visible cell")
@@ -127,7 +115,7 @@ class FeedCollectionViewController: UICollectionViewController {
                 return
             }
             
-             requestArtistBio(input: artistID , complete: { (bioURL: String) in
+            requestArtistBio(input: artistID , complete: { (bioURL: String) in
                 bioViewController.passedWikiURL = bioURL})
             
         }
@@ -145,15 +133,29 @@ class FeedCollectionViewController: UICollectionViewController {
         }
         
     }
-
-//MARK: Share Button
+    
+    internal func fetchArticlesWith(artistID: Int) {
+        DispatchQueue.main.async {
+            let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+            loadingNotification.label.text = "Wait....."
+        }
+        requestArtistNews(input: artistID) {
+            DispatchQueue.main.async { [unowned self] in
+                MBProgressHUD.hide(for: self.view, animated: true)
+                self.collectionView?.reloadData()
+            }
+        }
+    }
+    
+    //MARK: Share Button
     @IBAction func shareButtonPressed(_ sender: Any) {
         
         guard let visibleCellIndexPath = (self.collectionView?.indexPathsForVisibleItems)?.first else {
             print(#line, "no visible cell")
             return
         }
- 
+        
         let articleURL = finalArray[visibleCellIndexPath.item].articleURL
         
         //Alert
@@ -167,7 +169,7 @@ class FeedCollectionViewController: UICollectionViewController {
                 let post = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
                 
                 post?.setInitialText("\(String(describing: articleURL))")
-               // post?.add(url: URL!(articleURL))
+                // post?.add(url: URL!(articleURL))
                 
                 self.present(post!, animated: true, completion: nil)
             }else {
@@ -187,13 +189,13 @@ class FeedCollectionViewController: UICollectionViewController {
                 self.showShareAlert(service: "Twitter")
             }
         }
-
+        
         //Add action to action sheet
         alert.addAction(actionOne)
         alert.addAction(actionTwo)
         // Present alert
         self.present(alert, animated: true, completion: nil)
-
+        
     }
     
     func showShareAlert(service:String)
