@@ -15,6 +15,17 @@ class FeedCollectionViewController: UICollectionViewController {
     var artistID:Int?
     var articleURLToPost: String?
     
+    //MARK: URL Alert
+    func showUrlAlert()
+    {
+        let shareAlert = UIAlertController(title: "Error", message: "That URL does not exist", preferredStyle: .alert)
+        let action = UIAlertAction (title: "Dismiss", style: .cancel, handler: nil)
+        
+        shareAlert.addAction(action)
+        present(shareAlert, animated: true, completion: nil)
+    }
+
+    
     var request: String! {
         didSet {
             
@@ -23,14 +34,21 @@ class FeedCollectionViewController: UICollectionViewController {
             loadingNotification.mode = MBProgressHUDMode.indeterminate
             loadingNotification.label.text = "Fetching Artist News....."
   
-            //MARK: Request Artis ID, Request News
+            //MARK: Request Artist ID, Request News
             
             requestArtistID(Input: request) { (artistName, artistId, artistPhoto) in
                 
                 print("name \(artistName), id \(artistId), photo \(artistPhoto)")
                 
+//                if self.artistID == nil {
+//                    MBProgressHUD.hide(for: self.view, animated: true)
+//                    self.showUrlAlert()
+//                    self.navigationController?.popViewController(animated:true)
+//                } else {
+
                 
                 self.artistID = artistId
+//                }
                 
                 
                 requestArtistNews(input: artistId) {
@@ -39,7 +57,7 @@ class FeedCollectionViewController: UICollectionViewController {
                         
                         //dismiss HUD and reload
                         MBProgressHUD.hide(for: self.view, animated: true)
-                        //                        MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+                        
                         
                         self.collectionView?.reloadData()
                         

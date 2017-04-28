@@ -29,7 +29,7 @@ class BioViewController: UIViewController, UIWebViewDelegate {
     
     func showUrlAlert()
     {
-        let shareAlert = UIAlertController(title: "Error", message: "That URL does not exist", preferredStyle: .alert)
+        let shareAlert = UIAlertController(title: "Error", message: "Sorry... that URL does not exist. Have you tried searching for Slayer? They're pretty cool.", preferredStyle: .alert)
         let action = UIAlertAction (title: "Dismiss", style: .cancel, handler: nil)
         
         shareAlert.addAction(action)
@@ -64,6 +64,10 @@ class BioViewController: UIViewController, UIWebViewDelegate {
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         print("There was a problem loading the web page!")
+    }
+    
+    deinit {
+        
     }
     
     

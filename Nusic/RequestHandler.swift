@@ -69,6 +69,11 @@ func requestArtistID(Input input : String, complete: @escaping ((String,Int,Stri
                     
                     complete(artistName, artistId, artistPhoto)
                 } else {
+                   
+                                       
+                   
+                    
+
                     print("Sorry no artist found")
                 }
             }

@@ -224,7 +224,7 @@
         <!--Web View Controller-->
         <scene sceneID="DfK-Fr-OVY">
             <objects>
-                <viewController id="3nX-ru-G2Y" customClass="WebViewController" customModule="Nusic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewController" id="3nX-ru-G2Y" customClass="WebViewController" customModule="Nusic" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="suP-U9-TFx"/>
                         <viewControllerLayoutGuide type="bottom" id="vWH-cW-VTP"/>
