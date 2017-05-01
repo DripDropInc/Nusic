@@ -13,25 +13,6 @@ import Social
 class FeedCollectionViewController: UICollectionViewController {
     
     
-    
-    
-    //var artistID: Int! {
-    //    didSet {
-    //        let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
-    //        loadingNotification.mode = MBProgressHUDMode.indeterminate
-    //        loadingNotification.label.text = "Wait....."
-    //
-    //        requestArtistNews(input: artistID) {
-    //            DispatchQueue.main.async {
-    //                MBProgressHUD.hide(for: self.view, animated: true)
-    //                self.collectionView?.reloadData()
-    //
-    //            }
-    //        }
-    //    }
-    //}
-    
-    //    var artistID:Int?
     var articleURLToPost: String?
     
     //MARK: URL Alert
@@ -140,6 +121,8 @@ class FeedCollectionViewController: UICollectionViewController {
             loadingNotification.mode = MBProgressHUDMode.indeterminate
             loadingNotification.label.text = "Wait....."
         }
+        
+        
         requestArtistNews(input: artistID) {
             DispatchQueue.main.async { [unowned self] in
                 MBProgressHUD.hide(for: self.view, animated: true)
