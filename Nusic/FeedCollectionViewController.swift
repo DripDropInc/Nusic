@@ -122,15 +122,15 @@ class FeedCollectionViewController: UICollectionViewController {
             loadingNotification.label.text = "Wait....."
         }
         
-        
-        requestArtistNews(input: artistID) {
+        let artists : Artist = followArray[followArray.count-1]
+        requestArtistNews(input: artists.artistID!) {
             DispatchQueue.main.async { [unowned self] in
                 MBProgressHUD.hide(for: self.view, animated: true)
                 self.collectionView?.reloadData()
             }
         }
-    }
     
+    }
     //MARK: Share Button
     @IBAction func shareButtonPressed(_ sender: Any) {
         

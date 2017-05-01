@@ -97,7 +97,6 @@ func requestArtistNews(input Input : Int, complete: @escaping (() -> Void)) {
     
     finalArray.removeAll()
     articlesArray.removeAll()
-    artistArray.removeAll()
     
     
     let sessionConfig = URLSessionConfiguration.default
