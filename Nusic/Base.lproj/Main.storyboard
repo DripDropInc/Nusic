@@ -51,6 +51,11 @@
                                     <constraint firstItem="j8t-bs-0b9" firstAttribute="centerX" secondItem="Tej-Pz-H2h" secondAttribute="centerX" id="YBT-p9-Rie"/>
                                     <constraint firstItem="j8t-bs-0b9" firstAttribute="centerY" secondItem="Tej-Pz-H2h" secondAttribute="centerY" constant="40" id="met-Yo-WBI"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.14507749676704407" green="0.1451098620891571" blue="0.14507544040679932" alpha="0.35298052226027399" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,8 +119,8 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x74-v3-f1E">
-                                            <rect key="frame" x="28" y="586" width="59" height="32"/>
-                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                                            <rect key="frame" x="28" y="585" width="63" height="33"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
                                             <state key="normal" title="Artist Bio">
                                                 <color key="titleColor" red="0.98431372549999996" green="0.31372549020000001" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
@@ -124,15 +129,15 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFk-Xo-Nyt">
-                                            <rect key="frame" x="303" y="586" width="80" height="32"/>
-                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                                            <rect key="frame" x="297" y="585" width="86" height="33"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
                                             <state key="normal" title="Follow Artist">
                                                 <color key="titleColor" red="0.98431372549999996" green="0.31372549020000001" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPI-nq-Zco">
-                                            <rect key="frame" x="187" y="586" width="37" height="32"/>
-                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                                            <rect key="frame" x="185.66666666666666" y="585" width="40" height="33"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
                                             <state key="normal" title="Share">
                                                 <color key="titleColor" red="0.98431372549999996" green="0.31372549020000001" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
@@ -186,7 +191,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="dDA-8f-PLT">
                         <barButtonItem key="rightBarButtonItem" title="Search" id="zqg-ya-Dxn">
-                            <color key="tintColor" red="0.69650036096572876" green="0.34751802682876587" blue="0.29594981670379639" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.98431372549019602" green="0.31372549019607843" blue="0.070588235294117646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" identifier="ViewController" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="pa1-83-qf4"/>
                             </connections>
@@ -264,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wj7-Qe-gKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2852" y="-151"/>
+            <point key="canvasLocation" x="2577" y="-152"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="L9H-2g-RZr">
