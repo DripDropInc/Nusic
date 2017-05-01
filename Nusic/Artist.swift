@@ -14,5 +14,6 @@ class Artist {
     var artistName: String?
     var artistImage: String?
     var artistID: Int?
+    var articles: [Article] = []
     
 }

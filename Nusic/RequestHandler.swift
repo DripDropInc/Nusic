@@ -20,6 +20,8 @@ var numberOfArticlesPerArtist = [Int]()
 
 //MARK: Artist Request
 
+var artists: [Artist] = []
+
 
 
 func requestArtistID(Input input : String, complete: @escaping ((String?,Int?,String?) -> Void) ) {
@@ -71,6 +73,8 @@ func requestArtistID(Input input : String, complete: @escaping ((String?,Int?,St
                     newArtist.artistImage = artistPhoto
                     
                     followArray.append(newArtist)
+                    // add the artist to the artists array
+                    artists.append(newArtist)
                     
                     print("Artist Name: \(String(describing: artistName))")
                     print("Artist ID: \(String(describing: artistId))")
@@ -124,6 +128,10 @@ func requestArtistNews(input Input : Int, complete: @escaping (() -> Void)) {
                 let json = JSON(data: data)
                 let result = json["results"].arrayValue
                 for currentIndex in result {
+//                    let language = currentIndex["language"]
+                    guard currentIndex["language"] == "en" else {
+                        continue
+                    }
                     
                     let title = currentIndex["title"]
                     let summary = currentIndex["summary"]
@@ -135,31 +143,35 @@ func requestArtistNews(input Input : Int, complete: @escaping (() -> Void)) {
                     let year = publishDate["year"]
                     let month = publishDate["month"]
                     let day = publishDate["day"]
-                    let language = currentIndex["language"]
-                    
-                    
-                    
                     
                     
                     
                     let newArticle = Article()
+                    
                     newArticle.articleTitle = title.string
                     newArticle.articleSummary = summary.string
                     newArticle.articleURL = url.string
                     newArticle.articleImage = image.string
                     newArticle.articleSourceTitle = sourceTitle.string
                     newArticle.articleDate = newArticle.date(Day: day.intValue, Month: month.intValue, Year: year.intValue)
-                    newArticle.articleLanguage = language.string
+//                    newArticle.articleLanguage = language.string
                     newArticle.articleArtistID = Input
+                    articlesArray.insert(newArticle, at: 0)
+                    // could this be removed??
+                    articlesArray.sort(by: { $0.articleDate?.compare($1.articleDate!) == .orderedDescending })
                     
-                    if newArticle.articleLanguage!.contains("en") {
-                        
-                        articlesArray.insert(newArticle, at: 0)
-                        articlesArray.sort(by: { $0.articleDate?.compare($1.articleDate!) == .orderedDescending })
-                    }
+//                    if newArticle.articleLanguage!.contains("en") {
+//                        
+//                        
+//                        
+//                    }
                 }
                 
+                // instantiate an Artist object
                 artistArray.insert(articlesArray, at: 0)
+                
+                
+                // this logic should be in a separate function
                 for articles in artistArray {
                     numberOfArticlesPerArtist.append(articles.count)
                 }
@@ -188,6 +200,8 @@ func requestArtistNews(input Input : Int, complete: @escaping (() -> Void)) {
     task.resume()
     session.finishTasksAndInvalidate()
 }
+
+//func sortedData(input : Array)
 
 // MARK: Bio Request
 func requestArtistBio(input : Int, complete: @escaping ((String) -> Void)) {
