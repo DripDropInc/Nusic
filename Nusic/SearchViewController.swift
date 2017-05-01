@@ -12,7 +12,7 @@ import QuartzCore
 
 
 
-class ViewController: UIViewController {
+class SearchViewController: UIViewController {
     
     var callbackBlock: ((Int)->())?
     
@@ -45,11 +45,7 @@ class ViewController: UIViewController {
             return
         }
         sender.isEnabled = false
-        
-//        let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
-//        loadingNotification.mode = MBProgressHUDMode.indeterminate
-//        loadingNotification.label.text = "Wait....."
-        
+
         fetchArtistID{ [unowned self]
             (artistID: Int?) in
             
@@ -66,7 +62,7 @@ class ViewController: UIViewController {
             }
             
             callbackBlock(artistID)
-//            self.pushToCollectionView(with: artistID)
+            
             DispatchQueue.main.async {
                 self.dismiss(animated: true, completion: nil)
             }
@@ -83,22 +79,11 @@ class ViewController: UIViewController {
     }
     
     private func fetchArtistID(completionHandler: @escaping (Int?)->()) {
-        requestArtistID(Input: self.textField.text!) {
+        NetworkManager.sharedInstance.requestArtistID(Input: self.textField.text!) {
             (artistName, artistID, artistPhoto) in
             completionHandler(artistID)
         }
     }
-    
-    // kill
-//    private func pushToCollectionView(with artistID: Int) {
-//        DispatchQueue.main.async { [unowned self] in
-//            // create a FeedCollectionViewController
-//            // pass it the artistID
-//            let feedVC = self.storyboard?.instantiateViewController(withIdentifier: self.id) as! FeedCollectionViewController
-//            feedVC.artistID = artistID
-//            self.navigationController?.pushViewController(feedVC, animated: true)
-//        }
-//    }
     
     private func handleAlert() {
         // in background Q

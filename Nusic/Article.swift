@@ -22,6 +22,8 @@ class Article {
     var articleLanguage: String?
     var articleArtistID: Int?
     
+    weak var artist: Artist?
+    
 func date(Day day : Int, Month month : Int, Year year : Int) -> Date {
     
     let dateString = "\(year)-\(month)-\(day)"
@@ -32,5 +34,7 @@ func date(Day day : Int, Month month : Int, Year year : Int) -> Date {
     let date = dateFormatter.date(from: dateString)
     
     return date!
+    
+    
 }
 }
