@@ -64,6 +64,14 @@ func requestArtistID(Input input : String, complete: @escaping ((String?,Int?,St
                     let artistPhoto = artist["image"]!.stringValue
                     
                     
+                    
+                    let newArtist = Artist()
+                    newArtist.artistID = artistId
+                    newArtist.artistName = artistName
+                    newArtist.artistImage = artistPhoto
+                    
+                    followArray.append(newArtist)
+                    
                     print("Artist Name: \(String(describing: artistName))")
                     print("Artist ID: \(String(describing: artistId))")
                     
