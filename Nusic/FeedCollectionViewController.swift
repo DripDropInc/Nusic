@@ -164,8 +164,7 @@ class FeedCollectionViewController: UICollectionViewController {
             {
                 let post = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
                 
-                post?.setInitialText("\(String(describing: articleURL))")
-                // post?.add(url: URL!(articleURL))
+                post?.setInitialText(articleURL)
                 
                 self.present(post!, animated: true, completion: nil)
             }else {
@@ -179,7 +178,7 @@ class FeedCollectionViewController: UICollectionViewController {
             if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter)
             {
                 let post = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-                post?.setInitialText("\(String(describing: articleURL))")
+                post?.setInitialText(articleURL)
                 self.present(post!, animated: true, completion: nil)
             }else {
                 self.showShareAlert(service: "Twitter")
