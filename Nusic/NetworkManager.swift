@@ -194,7 +194,6 @@ final class NetworkManager {
         // sort each artist array by date
         
         for artist in artists {
-            artist.articles.reverse()
             numberOfArticlesPerArtist.append(artist.articles.count)
         }
         

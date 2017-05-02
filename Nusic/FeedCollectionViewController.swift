@@ -131,7 +131,7 @@ class FeedCollectionViewController: UICollectionViewController {
         DispatchQueue.main.async {
             let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
             loadingNotification.mode = MBProgressHUDMode.indeterminate
-            loadingNotification.label.text = "Wait....."
+            loadingNotification.label.text = "Loading Artist News"
         }
         
 //        let artists : Artist = followArray[followArray.count-1]
