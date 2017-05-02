@@ -14,7 +14,7 @@ import QuartzCore
 
 class SearchViewController: UIViewController {
     
-    var callbackBlock: ((Int)->())?
+    var callbackBlock: ((Artist)->())?
     
     
     @IBOutlet weak var textField: UITextField!
@@ -47,11 +47,12 @@ class SearchViewController: UIViewController {
         sender.isEnabled = false
 
         fetchArtistID{ [unowned self]
-            (artistID: Int?) in
             
-            self.cleanupAfterArtistIDFetch()
+            (artist: Artist?) in
             
-            guard let artistID = artistID else {
+            self.cleanupAfterArtistFetch()
+            
+            guard let artist = artist else {
                 self.handleAlert()
                 return
             }
@@ -61,7 +62,7 @@ class SearchViewController: UIViewController {
                 return
             }
             
-            callbackBlock(artistID)
+            callbackBlock(artist)
             
             DispatchQueue.main.async {
                 self.dismiss(animated: true, completion: nil)
@@ -70,7 +71,7 @@ class SearchViewController: UIViewController {
         
     }
     
-    private func cleanupAfterArtistIDFetch() {
+    private func cleanupAfterArtistFetch() {
         DispatchQueue.main.async { [unowned self] in
             self.goButton.isEnabled = true
             MBProgressHUD.hide(for: self.view, animated: true)
@@ -78,10 +79,11 @@ class SearchViewController: UIViewController {
         }
     }
     
-    private func fetchArtistID(completionHandler: @escaping (Int?)->()) {
-        NetworkManager.sharedInstance.requestArtistID(Input: self.textField.text!) {
-            (artistName, artistID, artistPhoto) in
-            completionHandler(artistID)
+    private func fetchArtistID(completionHandler: @escaping (Artist?)->()) {
+        let userInput = self.textField.text!
+        NetworkManager.sharedInstance.requestArtist(with: userInput) {
+            (artist: Artist?) in
+            completionHandler(artist)
         }
     }
     

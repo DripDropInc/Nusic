@@ -15,5 +15,6 @@ class Artist {
     var artistImage: String?
     var artistID: Int?
     var articles: [Article] = []
+    var follow = false
     
 }

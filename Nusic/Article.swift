@@ -20,9 +20,9 @@ class Article {
     var articleSourceTitle: String?
     var articleDate : Date?
     var articleLanguage: String?
-    var articleArtistID: Int?
+//    var articleArtistID: Int?
     
-    weak var artist: Artist?
+    weak var artist: Artist? // loop ma I'm weak!
     
 func date(Day day : Int, Month month : Int, Year year : Int) -> Date {
     

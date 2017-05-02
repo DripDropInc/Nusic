@@ -40,7 +40,7 @@ class FeedCollectionViewController: UICollectionViewController {
         
         // when we first come in and there's no data
         
-        if NetworkManager.sharedInstance.finalArray.count < 1 {
+        if NetworkManager.sharedInstance.articlesToDisplay.count < 1 {
             // show popover
             performSegue(withIdentifier: "ViewController", sender: self)
         }
@@ -60,11 +60,11 @@ class FeedCollectionViewController: UICollectionViewController {
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return NetworkManager.sharedInstance.finalArray.count
+        return NetworkManager.sharedInstance.articlesToDisplay.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let article = NetworkManager.sharedInstance.finalArray[indexPath.row]
+        let article = NetworkManager.sharedInstance.articlesToDisplay[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FeedCollectionViewCell
         
         cell.article = article
@@ -84,7 +84,7 @@ class FeedCollectionViewController: UICollectionViewController {
         
         if segue.identifier == "ViewController" {
             let popover = segue.destination as! SearchViewController
-            popover.callbackBlock = fetchArticlesWith(artistID:)
+            popover.callbackBlock = fetchArticlesWith(artist:)
             
         }
         
@@ -95,11 +95,11 @@ class FeedCollectionViewController: UICollectionViewController {
         
         if segue.identifier == "BioViewController" {
             
-            let articleClass = NetworkManager.sharedInstance.finalArray[visibleCellIndexPath.row]
-            guard let bioViewController = segue.destination as? BioViewController, let artistID = articleClass.articleArtistID  else {
+            let article = NetworkManager.sharedInstance.articlesToDisplay[visibleCellIndexPath.row]
+            guard let bioViewController = segue.destination as? BioViewController, let artistID = article.artist?.artistID  else {
                 return
             }
-            
+//            NetworkManager.sharedInstance.re
             NetworkManager.sharedInstance.requestArtistBio(input: artistID , complete: { (bioURL: String) in
                 bioViewController.passedWikiURL = bioURL})
             
@@ -108,7 +108,7 @@ class FeedCollectionViewController: UICollectionViewController {
         if segue.identifier == "WebViewController" {
             if let webCollectionViewController = segue.destination as? WebViewController {
                 
-                guard let articleURL = NetworkManager.sharedInstance.finalArray[visibleCellIndexPath.item].articleURL else {
+                guard let articleURL = NetworkManager.sharedInstance.articlesToDisplay[visibleCellIndexPath.item].articleURL else {
                     print(#line, "no article url")
                     return
                 }
@@ -119,7 +119,7 @@ class FeedCollectionViewController: UICollectionViewController {
         
     }
     
-    internal func fetchArticlesWith(artistID: Int) {
+    internal func fetchArticlesWith(artist: Artist) {
         DispatchQueue.main.async {
             let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
             loadingNotification.mode = MBProgressHUDMode.indeterminate
@@ -128,7 +128,7 @@ class FeedCollectionViewController: UICollectionViewController {
         
 //        let artists : Artist = followArray[followArray.count-1]
         
-        NetworkManager.sharedInstance.requestArtistNews(with: artistID) {
+        NetworkManager.sharedInstance.requestArtistNews(with: artist) {
             DispatchQueue.main.async { [unowned self] in
                 MBProgressHUD.hide(for: self.view, animated: true)
                 self.collectionView?.reloadData()
@@ -144,7 +144,7 @@ class FeedCollectionViewController: UICollectionViewController {
             return
         }
         
-        let articleURL = NetworkManager.sharedInstance.finalArray[visibleCellIndexPath.item].articleURL
+        let articleURL = NetworkManager.sharedInstance.articlesToDisplay[visibleCellIndexPath.item].articleURL
         
         //Alert
         let alert = UIAlertController(title: "Share", message: "Share Artist News", preferredStyle:.actionSheet)
