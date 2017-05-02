@@ -188,10 +188,15 @@ class FeedCollectionViewController: UICollectionViewController {
         //Add action to action sheet
         alert.addAction(actionOne)
         alert.addAction(actionTwo)
+        alert.addAction(actionThree)
         // Present alert
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+    let actionThree = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+        print("Handle Cancel Logic here")
+    })
     
     func showShareAlert(service:String)
     {
