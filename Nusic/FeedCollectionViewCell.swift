@@ -10,7 +10,12 @@ import UIKit
 import SDWebImage
 
 class FeedCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var followButton: UIButton!
     
+    @IBAction func followTapped(_ sender: UIButton) {
+        article.artist?.follow = !(article.artist?.follow)!
+        configureButton()
+    }
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var body: UILabel!
@@ -32,8 +37,13 @@ class FeedCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    private func configureButton() {
+        let title = (article.artist?.follow)! ? "UnFollow" : "Follow"
+        followButton.setTitle(title, for: .normal)
+    }
+    
     func configureCell() {
-        
+        configureButton()
         headline.text = article.articleTitle
         body.text = article.articleSummary
         sourceTitle.text = article.articleSourceTitle

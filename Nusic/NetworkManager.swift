@@ -81,10 +81,7 @@ final class NetworkManager {
                         newArtist.artistID = artistId
                         newArtist.artistName = artistName
                         newArtist.artistImage = artistPhoto
-                        //                        newArtist.follow = false defaults
                         
-                        //                        followArray.append(newArtist)
-                        // add the artist to the artists array
                         self.artists.append(newArtist)
                         
                         print("Artist Name: \(String(describing: artistName))")

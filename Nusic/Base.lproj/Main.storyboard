@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GKi-4b-Fre">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GKi-4b-Fre">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--NUSIC-->
+        <!--Table View Controller-->
         <scene sceneID="hGJ-Xc-pj1">
             <objects>
                 <tableViewController id="HD5-Qd-zar" customClass="TableViewController" customModule="Nusic" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,14 +69,19 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="NUSIC" id="HbK-PK-9ek">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="B1u-NR-I96"/>
+                    <navigationItem key="navigationItem" id="uHX-QM-p5j">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="9Cy-kh-Kwi">
+                            <connections>
+                                <segue destination="hod-Iy-e7G" kind="unwind" unwindAction="unwindFromFavWithSender:" id="pFB-td-Fq6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ba-fq-OGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="hod-Iy-e7G" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="876.81159420289862" y="1085.8695652173915"/>
+            <point key="canvasLocation" x="1481.1594202898552" y="1155.9782608695652"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -152,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1797" y="943"/>
+            <point key="canvasLocation" x="2702.898550724638" y="942.39130434782612"/>
         </scene>
         <!--Feed Collection View Controller-->
         <scene sceneID="rK1-tB-AHf">
@@ -211,6 +216,9 @@
                                             <state key="normal" title="Follow Artist">
                                                 <color key="titleColor" red="0.98431372549999996" green="0.31372549020000001" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="followTapped:" destination="vSi-oj-ikm" eventType="touchUpInside" id="zPy-lG-9Wo"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPI-nq-Zco">
                                             <rect key="frame" x="191" y="588" width="40" height="33"/>
@@ -255,6 +263,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="body" destination="QPQ-N9-GZV" id="q7r-ct-zOa"/>
+                                    <outlet property="followButton" destination="JFk-Xo-Nyt" id="62Z-es-fAQ"/>
                                     <outlet property="headline" destination="pFn-6z-LiB" id="VRn-QW-Hxu"/>
                                     <outlet property="image" destination="rBf-cy-Vcu" id="p6g-Xp-nut"/>
                                     <outlet property="sourceTitle" destination="8zS-dt-u6q" id="A6n-e9-8pi"/>
@@ -269,7 +278,7 @@
                     <navigationItem key="navigationItem" id="dDA-8f-PLT">
                         <barButtonItem key="leftBarButtonItem" title="Fav" id="vZM-Q4-TcV">
                             <connections>
-                                <segue destination="HD5-Qd-zar" kind="presentation" id="dYN-UO-xLf"/>
+                                <segue destination="hz5-iT-H5f" kind="presentation" id="dYN-UO-xLf"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Search" id="zqg-ya-Dxn">
@@ -318,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Gt-Pm-YKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2576.811594202899" y="527.44565217391312"/>
+            <point key="canvasLocation" x="3484.057971014493" y="527.44565217391312"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="DfK-Fr-OVY">
@@ -376,6 +385,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gag-B3-htc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="912" y="340"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gPb-Bb-RFr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hz5-iT-H5f" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Glj-Mg-UmZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HD5-Qd-zar" kind="relationship" relationship="rootViewController" id="IrH-Vr-Nm9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RC7-fs-jvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="573.91304347826087" y="1155.9782608695652"/>
         </scene>
     </scenes>
     <resources>

@@ -24,6 +24,8 @@ class Article {
     
     weak var artist: Artist? // loop ma I'm weak!
     
+    
+    
 func date(Day day : Int, Month month : Int, Year year : Int) -> Date {
     
     let dateString = "\(year)-\(month)-\(day)"

@@ -37,14 +37,13 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let artist = NetworkManager.sharedInstance.artists[indexPath.row]
-            artist.follow = false
+            let artist = followed?[indexPath.row]
+            artist?.follow = false
             followed?.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentArtist = followed?[indexPath.row]

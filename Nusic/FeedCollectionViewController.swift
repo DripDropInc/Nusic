@@ -123,6 +123,10 @@ class FeedCollectionViewController: UICollectionViewController {
         
     }
     
+    @IBAction func unwindFromFav(sender: UIStoryboardSegue) {
+        collectionView?.reloadData()
+    }
+    
     internal func fetchArticlesWith(artist: Artist) {
         DispatchQueue.main.async {
             let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
