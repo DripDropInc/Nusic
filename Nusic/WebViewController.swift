@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MBProgressHUD
 
 
 class WebViewController: UIViewController, UIWebViewDelegate {
@@ -18,11 +18,17 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = "Loading Web Article"
+
         webViewer.delegate = self
         loadWebPage()
+        MBProgressHUD.hide(for: self.view, animated: true)
     }
     
     func loadWebPage () {
+        
         let url = URL(string: passedURL!)
         let request = URLRequest(url: url!)
         webViewer.loadRequest(request)

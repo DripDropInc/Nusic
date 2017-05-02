@@ -103,7 +103,8 @@ class FeedCollectionViewController: UICollectionViewController {
             guard let bioViewController = segue.destination as? BioViewController, let artistID = article.artist?.artistID  else {
                 return
             }
-//            NetworkManager.sharedInstance.re
+            
+            //            NetworkManager.sharedInstance.re
             NetworkManager.sharedInstance.requestArtistBio(input: artistID , complete: { (bioURL: String) in
                 bioViewController.passedWikiURL = bioURL})
             

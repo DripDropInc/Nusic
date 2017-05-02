@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class BioViewController: UIViewController, UIWebViewDelegate {
     
@@ -17,14 +18,24 @@ class BioViewController: UIViewController, UIWebViewDelegate {
             guard let _ = wikiWebView else {
                 return
             }
+            
             loadWebPage()
+            
         }
     }
     
     override func viewDidLoad() {
+        //progress HUD
+        let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = "Loading Artist Bio"
+        
         super.viewDidLoad()
         wikiWebView.delegate = self
         loadWebPage()
+        MBProgressHUD.hide(for: self.view, animated: true)
+
+    
     }
     
     func showUrlAlert()
@@ -38,6 +49,7 @@ class BioViewController: UIViewController, UIWebViewDelegate {
 
     
     func loadWebPage () {
+        
         guard let wikiURL = self.passedWikiURL else {
             return
         }
@@ -48,6 +60,7 @@ class BioViewController: UIViewController, UIWebViewDelegate {
             self.navigationController?.popViewController(animated: true)
             
         } else {
+            
         let request = URLRequest(url: url!)
         wikiWebView.loadRequest(request)
         }
