@@ -140,6 +140,11 @@ class FeedCollectionViewController: UICollectionViewController {
             DispatchQueue.main.async { [unowned self] in
                 MBProgressHUD.hide(for: self.view, animated: true)
                 self.collectionView?.reloadData()
+                
+                self.collectionView?.layoutIfNeeded()
+                let number = NetworkManager.sharedInstance.artists.count-1
+                let indexPath = IndexPath(row: number, section: 0)
+                self.collectionView?.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
             }
         }
     
