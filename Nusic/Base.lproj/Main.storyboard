@@ -211,9 +211,6 @@
                                             <state key="normal" title="Follow Artist">
                                                 <color key="titleColor" red="0.98431372549999996" green="0.31372549020000001" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
-                                            <connections>
-                                                <segue destination="HD5-Qd-zar" kind="showDetail" identifier="cell" action="showViewController:sender:" id="vNQ-4Z-fUP"/>
-                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPI-nq-Zco">
                                             <rect key="frame" x="191" y="588" width="40" height="33"/>
@@ -270,6 +267,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="dDA-8f-PLT">
+                        <barButtonItem key="leftBarButtonItem" title="Fav" id="vZM-Q4-TcV">
+                            <connections>
+                                <segue destination="HD5-Qd-zar" kind="presentation" id="dYN-UO-xLf"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Search" id="zqg-ya-Dxn">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>

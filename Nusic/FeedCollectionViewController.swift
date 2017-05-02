@@ -77,6 +77,10 @@ class FeedCollectionViewController: UICollectionViewController {
         performSegue(withIdentifier: "WebViewController", sender: self)
     }
     
+    private func indexPathForVisibleCell() -> IndexPath? {
+        return self.collectionView?.indexPathsForVisibleItems.first
+    }
+    
     // MARK: Prepare For Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -88,7 +92,7 @@ class FeedCollectionViewController: UICollectionViewController {
             
         }
         
-        guard let visibleCellIndexPath = (self.collectionView?.indexPathsForVisibleItems)?.first else {
+        guard let visibleCellIndexPath = indexPathForVisibleCell()  else {
             print(#line, "no visible cell")
             return
         }
@@ -194,6 +198,15 @@ class FeedCollectionViewController: UICollectionViewController {
         shareAlert.addAction(action)
         present(shareAlert, animated: true, completion: nil)
     }
+    
+//    @IBOutlet weak var followButton: UIButton!
+    
+//    @IBAction func followTapped(_ sender: UIButton) {
+//        
+//        
+//    }
+    
+    
     
     
 }

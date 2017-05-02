@@ -26,6 +26,12 @@ final class NetworkManager {
     
     var artists: [Artist] = []
     
+    func followedArists() -> [Artist] {
+        
+        return artists.filter{ $0.follow == true }
+        
+    }
+    
     
     
     func requestArtist(with userInput : String, complete: @escaping ((Artist?) -> Void) ) {
