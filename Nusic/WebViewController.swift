@@ -17,24 +17,26 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var webViewer: UIWebView!
     
     override func viewDidLoad() {
-        //progress HUD
-        let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
-        loadingNotification.mode = MBProgressHUDMode.indeterminate
-        loadingNotification.label.text = "Loading Web Article"
-
-        super.viewDidLoad()
         
+        super.viewDidLoad()
         webViewer.delegate = self
         loadWebPage()
-        MBProgressHUD.hide(for: self.view, animated: true)
     }
     
     func loadWebPage () {
-        
+        DispatchQueue.main.async {
+            //progress HUD
+            let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+            loadingNotification.label.text = "Loading Web Article"
+
+        }
+
+
         let url = URL(string: passedURL!)
         let request = URLRequest(url: url!)
         webViewer.loadRequest(request)
-        
+
     }
 
     func webViewDidStartLoad(_ webView: UIWebView) {
@@ -42,6 +44,9 @@ class WebViewController: UIViewController, UIWebViewDelegate {
 }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
+        
+    MBProgressHUD.hide(for: self.view, animated: true)
+
     UIApplication.shared.isNetworkActivityIndicatorVisible = false
 }
     

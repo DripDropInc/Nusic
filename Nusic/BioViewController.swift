@@ -25,16 +25,10 @@ class BioViewController: UIViewController, UIWebViewDelegate {
     }
     
     override func viewDidLoad() {
-        //progress HUD
-        let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
-        loadingNotification.mode = MBProgressHUDMode.indeterminate
-        loadingNotification.label.text = "Loading Artist Bio"
-        
+                
         super.viewDidLoad()
         wikiWebView.delegate = self
         loadWebPage()
-        MBProgressHUD.hide(for: self.view, animated: true)
-
     
     }
     
@@ -54,6 +48,15 @@ class BioViewController: UIViewController, UIWebViewDelegate {
             return
         }
         print(#line, wikiURL)
+        
+        DispatchQueue.main.async {
+            //progress HUD
+            let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+            loadingNotification.label.text = "Loading Bio"
+            
+        }
+
         let url = URL(string: wikiURL)
         if url == nil {
         showUrlAlert()
@@ -67,12 +70,20 @@ class BioViewController: UIViewController, UIWebViewDelegate {
     }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
+//        let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+//        loadingNotification.mode = MBProgressHUDMode.indeterminate
+//        loadingNotification.label.text = "Loading Bio"
+
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
+        
+        MBProgressHUD.hide(for: self.view, animated: true)
+        
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
+    
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
