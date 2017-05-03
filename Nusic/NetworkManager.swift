@@ -50,6 +50,10 @@ final class NetworkManager {
         guard var URL = URL(string: "https://music-api.musikki.com/v1/artists/") else {return}
         let URLParams = ["q": (userInput),]
         URL = URL.appendingQueryParameters(URLParams)
+        
+        //User input is being appended to the end of the URL.
+        
+        
         var request = URLRequest(url: URL)
         request.httpMethod = "GET"
         
@@ -57,6 +61,7 @@ final class NetworkManager {
         
         request.addValue("12a985889510737104d84141c9f79232", forHTTPHeaderField: "Appid")
         request.addValue("ae1bc12c9434b2bd3cf9e15242f08be8", forHTTPHeaderField: "Appkey")
+        //Going to add AppID and AppKey for Musikki
         
         /* Start a new Task */
         let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
@@ -77,12 +82,18 @@ final class NetworkManager {
                         
                         
                         
+                        
+                        //Going to return an artist object made up of the JSON Text grabbed from within the dictionary.
+                        //This Artist object is then added to the artist array.
+                        //We've Done this through using SwiftyJSON - Essentially just shorterns down the artist.
+                        
                         let newArtist = Artist()
                         newArtist.artistID = artistId
                         newArtist.artistName = artistName
                         newArtist.artistImage = artistPhoto
-                        
                         self.artists.append(newArtist)
+                        
+                        
                         
                         print("Artist Name: \(String(describing: artistName))")
                         print("Artist ID: \(String(describing: artistId))")
@@ -190,34 +201,36 @@ final class NetworkManager {
             print(#line, "the artist array is empty")
             return
         }
-        
-        // sort each artist array by date
+        //Checking the array isn't empty
         
         for artist in artists {
             numberOfArticlesPerArtist.append(artist.articles.count)
+            //Grabs the number of articles per artists and puts that number in an array.
         }
-        
         guard numberOfArticlesPerArtist.count > 0 else {
             return
         }
         
         let max: Int! = numberOfArticlesPerArtist.sorted(by: >).last
         
+        //Sorts the Array and assigns the first item in it as the Max, which says how many times the next for loop needs to itterate.
+        
         print(#line, numberOfArticlesPerArtist)
         print(#line, max)
         
         
         for index in 0...max-1 {
-            for artist in artists {
-                if index >= artist.articles.count {}
+         //Max number is essentially telling the program how many articles the artists with the most has. The minus one is used as Arrays start from 0 and it prevents the for loop from going out of bounds. 
+            
+            for artist in artists{
+                if index >= artist.articles.count {} //If the index is higher than the current number of articles the current artist has, it will return out of the function.
                 else {
                     let currentArtist = artist.articles[index]
                     articlesToDisplay.append(currentArtist)
+                    //Else it will grab that currentArticle and place it into the articlesToDisplay array.
                 }
             }
         }
-        
-        
         
     }
     

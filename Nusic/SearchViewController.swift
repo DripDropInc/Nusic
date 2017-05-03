@@ -9,54 +9,69 @@
 import UIKit
 import MBProgressHUD
 
-
-
-
 class SearchViewController: UIViewController {
     
+    
+    
+    // Properties
     var callbackBlock: ((Artist)->())?
     let collectionView = FeedCollectionViewController()
+    let id = "FeedCollectionViewController"
+
     
+    //Outlets
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var goButton: UIButton!
-    let id = "FeedCollectionViewController"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Sets Nav Title.
         self.navigationItem.title = "NUSIC"
+        
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
         textField.becomeFirstResponder()
+        //Brings up textField
         goButton.isEnabled = true
         textField.text = ""
+        //Sets default text to nil
     }
     
+    
+    //Function for when you click off the Search View
         func unwindFromSearch(sender: UIStoryboardSegue) {
              textField.resignFirstResponder()
-            performSegue(withIdentifier: "FeedCollectionViewController", sender: self)
-            //collectionView.reloadData()
-        }
+            performSegue(withIdentifier: id, sender: self)
+            //Removes Keyboard and then performs segue with FeedCollectionViewController
     
-
+    }
     
     @IBAction func goTapped(_ sender: UIButton) {
         // disable the button
         textField.resignFirstResponder()
         
-        // fetch the artistID
-        
+        //Sets userinput to the user's input from the textField, if its empty will just return out of the function.
         guard let userInput = textField.text, userInput != "" else {
             return
         }
+        
         sender.isEnabled = false
 
-        fetchArtistID{ [unowned self]
+        
+        //Fetches ArtistID
+        fetchArtistID{ [unowned self] //Makes it a weak function.
             
             (artist: Artist?) in
             
             self.cleanupAfterArtistFetch()
+            //Fires loading animation.
             
             guard let artist = artist else {
                 self.handleAlert()
@@ -69,6 +84,8 @@ class SearchViewController: UIViewController {
             }
             
             callbackBlock(artist)
+            //Call back block is going to fetch the artistsNews 
+            
             
             DispatchQueue.main.async {
                 self.dismiss(animated: true, completion: nil)
@@ -86,10 +103,15 @@ class SearchViewController: UIViewController {
     }
     
     private func fetchArtistID(completionHandler: @escaping (Artist?)->()) {
+        
+        //Function calls the RequestArtist with with userinput caller.
+        
         let userInput = self.textField.text!
         NetworkManager.sharedInstance.requestArtist(with: userInput) {
             (artist: Artist?) in
             completionHandler(artist)
+            
+            //Returns artist Artist with Completion handler. Once we got the userinput, we stick that into the request artist function, completion handler is going to return an artist object. 
         }
     }
     
