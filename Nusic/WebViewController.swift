@@ -17,11 +17,13 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var webViewer: UIWebView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        //progress HUD
         let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
         loadingNotification.mode = MBProgressHUDMode.indeterminate
         loadingNotification.label.text = "Loading Web Article"
 
+        super.viewDidLoad()
+        
         webViewer.delegate = self
         loadWebPage()
         MBProgressHUD.hide(for: self.view, animated: true)
