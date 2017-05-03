@@ -24,13 +24,6 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "NUSIC"
-        
-        let recog : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action:#selector(unwindFromSearch(sender:)))
-        recog.numberOfTapsRequired = 1
-        recog.numberOfTouchesRequired = 1
-        recog.cancelsTouchesInView = false
-        //recog.delegate = self as! UIGestureRecognizerDelegate
-        self.view.window?.addGestureRecognizer(recog)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -113,9 +106,7 @@ class SearchViewController: UIViewController {
         }
     }
     
-//    let tap = UITapGestureRecognizer(target: self, action: #selector(unwindFromSearch(sender:)))
-//    view.tap = tap
-//    
+
 
 
 }
