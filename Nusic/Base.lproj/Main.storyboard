@@ -95,9 +95,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultSearchImage" translatesAutoresizingMaskIntoConstraints="NO" id="JOh-fy-Qyk">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tej-Pz-H2h">
                                 <rect key="frame" x="20" y="172.66666666666669" width="374" height="191.00000000000006"/>
                                 <subviews>
@@ -144,15 +141,15 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.14507749676704407" green="0.1451098620891571" blue="0.14507544040679932" alpha="0.35298052226027399" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Tej-Pz-H2h" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="1aq-pY-G9F"/>
-                            <constraint firstItem="JOh-fy-Qyk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="DFg-8t-T9L"/>
-                            <constraint firstItem="JOh-fy-Qyk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Pa7-Ek-oUw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Tej-Pz-H2h" secondAttribute="trailing" id="WbI-SA-9te"/>
-                            <constraint firstAttribute="trailing" secondItem="JOh-fy-Qyk" secondAttribute="trailing" id="hxL-fJ-RG6"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JOh-fy-Qyk" secondAttribute="bottom" id="iQb-rL-Wqs"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Tej-Pz-H2h" secondAttribute="leading" id="qoI-Qz-FBb"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ItK-D2-1LE" appends="YES" id="Hxu-26-3A0"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="vMt-MD-SB4">
                         <barButtonItem key="backBarButtonItem" title="Back" id="PRq-aV-HkK"/>
@@ -163,6 +160,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="fAO-QT-qyN" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="ItK-D2-1LE">
+                    <connections>
+                        <segue destination="fAO-QT-qyN" kind="unwind" unwindAction="unwindFromSearchWithSender:" id="OwH-9n-Xp9"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2702.898550724638" y="942.39130434782612"/>
         </scene>
@@ -447,7 +450,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DefaultSearchImage" width="750" height="1334"/>
         <image name="ig" width="620" height="400"/>
     </resources>
 </document>
