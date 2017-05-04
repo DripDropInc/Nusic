@@ -71,7 +71,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="uHX-QM-p5j">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="9Cy-kh-Kwi">
-                            <color key="tintColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="hod-Iy-e7G" kind="unwind" unwindAction="unwindFromFavWithSender:" id="pFB-td-Fq6"/>
                             </connections>
@@ -327,7 +327,7 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Search" id="zqg-ya-Dxn">
-                            <color key="tintColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" identifier="ViewController" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="pa1-83-qf4"/>
                             </connections>
@@ -436,7 +436,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hz5-iT-H5f" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Glj-Mg-UmZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Glj-Mg-UmZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

@@ -63,6 +63,10 @@ class SearchViewController: UIViewController {
         }
         
         sender.isEnabled = false
+        
+        let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = "Wait"
 
         
         //Fetches ArtistID
